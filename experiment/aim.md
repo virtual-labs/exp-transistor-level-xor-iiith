@@ -5,14 +5,14 @@ The schematic and truth table for 2 input A and B for XOR gate :-
 
 **SCHEMATIC OF XOR GATE**
 
-<img  src="images/xorgate.jpeg">
+<img src="images/xorgate.jpeg">
 
 |Input A | Input B | Output|
 |--------|---------|-------|
-|0       | 	0      | 	0    |
-|0 	     |  1  	   |  1    |
-|1       | 	0      | 	1    |
-|1       | 	1      | 	0    |
+|0       | 	0  | 	0  |
+|0 	 |  1  	   |  1    |
+|1       | 	0  | 1     |
+|1       | 	1  | 0     |
 
 
 **XNOR** (exclusive OR)
@@ -22,9 +22,9 @@ The schematic and truth table for 2 input A and B for XOR gate :-
 
 **SCHEMATIC OF XNOR GATE**
 
-<img  src="images/xnor.jpeg"">
+<img  src='images/xnor.jpeg'">
 
 |Input A | Input B | Output |
 |--------|---------|--------|
-|0       |	0      |	1     |
-|0       | 	1      | 	0     |
+|0       |0        |1       |
+|0       |1        |0       |
