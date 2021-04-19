@@ -6,7 +6,7 @@ Having gained sufficient knowledge about series and parallel connection, we now 
 
 **IMPLEMENTATION FOR N-SWITCHES**
 
-<img src="images/kmap_xor.png"">
+<img src="images/kmap_xor.png">
 
 The series combination of A and B is in parallel with the series combination of C and D.
 
