@@ -3,6 +3,10 @@
 <img src="images/xor_procedure.jpg">
          
                          
+
+
+
+
                                   
  **XNOR** 
  
