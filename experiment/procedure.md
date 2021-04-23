@@ -8,6 +8,6 @@
 
 
                                   
- **XNOR** 
+**XNOR** 
  
  <img src="images/xnor_procedure.jpg">
