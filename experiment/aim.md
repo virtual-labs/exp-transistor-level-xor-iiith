@@ -28,3 +28,7 @@ The schematic and truth table for 2 input A and B for XOR gate :-
 |--------|---------|--------|
 |0       |0        |1       |
 |0       |1        |0       |
+
+
+1. To design a 2 input XOR gate using minimum number of transistors  
+2. To design a 2 input XNOR gate using minimum number of transistors  
