@@ -1,18 +1,82 @@
 [
-{"question":"This is a Sample Question 1?",
+{"question":"1.Can you distinguish between AND and XNOR gate when both the inputs are 1?",
 "answers":{
-            "a":"answer1",
-            "b":"answer2",
-            "c":"answer3",
-            "d":"answer4"
+            "a":"No",
+            "b":"Yes",
+            "c":"MAY or MAY NOT",
+            "d":"None of the above"
           },
 "correctAnswer":"a"},
-{"question":"This is a Sample Question 2?",
+            
+{"question":"2. Choose the correct design of A+BC using NMOS only.",
 "answers":{
-            "a":"answer1",
-            "b":"answer2",
-            "c":"answer3",
-            "d":"answer4"
+            "a":"<img src='images/pic1.jpg'>",
+            "b":"<img src='images/pic2.jpg'>",
+            "c":"<img src='images/pic3.jpg'>",
+            "d":"<img src='images/pic4.jpg'>"
           },
-"correctAnswer":"c"} 
+"correctAnswer":"c"},
+            
+{"question":"3. Choose the correct design of AC+BC using PMOS only.",
+"answers":{
+            "a":"<img src='images/pic5.jpg'>",
+            "b":"<img src='images/pic4.jpg'>",
+            "c":"<img src='images/pic1.jpg'>",
+            "d":"<img src='images/pic2.jpg'>"
+          },
+"correctAnswer":"a"},
+            
+{"question":"4. In above question what is the minimum number of transistor required for making the design? ",
+"answers":{
+            "a":"4",
+            "b":"2",
+            "c":"5",
+            "d":"3"
+          },
+"correctAnswer":"d"},     
+            
+{"question":"5. Choose the correct design of ABC using complementary logic.",
+"answers":{
+            "a":"<img src='images/comp1.jpg'>",
+            "b":"<img src='images/comp2.jpg'>",
+            "c":"<img src='images/comp3.jpg'>",
+            "d":"<img src='images/comp4.jpg'>"
+          },
+"correctAnswer":"b"},
+            
+{"question":"6. Choose the correct design of A+B+C using complementary logic.",
+"answers":{
+            "a":"<img src='images/comp3.jpg'>",
+            "b":"<img src='images/comp1.jpg'>",
+            "c":"<img src='images/comp4.jpg'>",
+            "d":"<img src='images/comp2.jpg'>"
+          },
+"correctAnswer":"b"},
+            
+{"question":"7. What will be the minimum number of transistor required for designing ABC+ABC+ABC+ABC",
+"answers":{
+            "a":"12",
+            "b":"11",
+            "c":"8",
+            "d":"10"
+          },
+"correctAnswer":"d"},
+            
+{"question":"8. What will be the minimum number of transistor required for designing xy+xz+zy+xy+z",
+"answers":{
+            "a":"6",
+            "b":"4",
+            "c":"3",
+            "d":"2"
+          },
+"correctAnswer":"d"},   
+            
+{"question":"9. Reduce the expression xy(z+w)+y(xz+xz)+zw and tell the min number of transistor required for the design.",
+"answers":{
+            "a":"8",
+            "b":"6",
+            "c":"11",
+            "d":"12"
+          },
+"correctAnswer":"a"}             
 ]
