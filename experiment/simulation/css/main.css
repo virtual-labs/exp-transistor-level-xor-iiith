@@ -1,1 +1,152 @@
-/* You CSS goes in here */
+.v-datalist-container {
+  min-height: 31.25rem;
+  height: 75vh;
+  width: 100%;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+#diagram {
+  min-height: 31.25rem;
+  height: 75vh;
+  width: 100%;
+  border: 0.2rem solid #97d23d;
+  border-radius: 1rem;
+  position: relative;
+  background-color: #f1f1f1;
+}
+
+#diagram .component {
+  border-radius: 0.625rem;
+  border: 0.125rem solid green;
+  width: 5rem;
+  min-height: 4.75rem;
+  text-align: center;
+  cursor: move;
+  background-color: white;
+  position: absolute;
+  display: flex;
+}
+
+#diagram .component2 {
+  border-radius: 0.625rem;
+  border: 0.125rem solid green;
+  width: 7rem;
+  min-height: 4.75rem;
+  text-align: center;
+  cursor: move;
+  background-color: white;
+  position: absolute;
+  display: flex;
+}
+
+#diagram .io-component {
+  border-radius: 0.625rem;
+  border: 0.125rem solid green;
+  width: 3.75rem;
+  text-align: center;
+  cursor: move;
+  position: absolute;
+  background-color: white;
+  color: black;
+}
+
+#diagram .high {
+  background-color: rgb(97, 202, 97);
+}
+
+#diagram .low {
+  background-color: rgb(206, 206, 120);
+}
+
+.toolbar-item-list {
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: start;
+  justify-content: space-between;
+  padding: 0.625rem;
+}
+
+.toolbar-component {
+  margin: 0.3rem;
+  box-sizing: border-box;
+  width: 40%;
+  border: 0.1rem thin rgb(0, 0, 0);
+  background-color: rgb(225, 238, 225);
+  border-radius: 1rem;
+}
+
+.toolbar-component:hover {
+  background-color: rgb(202, 252, 202);
+  cursor: pointer;
+}
+
+.each-toolbar-component {
+  padding: 0.625rem;
+  font-size: 0.9rem;
+}
+
+.svg-component {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+}
+
+.text-danger {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+.text-success {
+  color: green;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .toolbar-item-list {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
+  .toolbar-component {
+    width: 90%
+  }
+
+  #diagram .component {
+    width: 3.125rem;
+    min-height: 2.96rem;
+  }
+
+  #diagram .component2 {
+    width: 4.375rem;
+    min-height: 2.96rem;
+  }
+
+  .each-toolbar-component {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  #diagram .component {
+    width: 4.375rem;
+    min-height: 4.15rem;
+  }
+
+  #diagram .component2 {
+    width: 6.125rem;
+    min-height: 4.15rem;
+  }
+
+}
+
+#output-box {
+  overflow: auto;
+}

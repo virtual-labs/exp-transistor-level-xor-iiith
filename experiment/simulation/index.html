@@ -1,17 +1,231 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Virtual labs</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.6/js/jsplumb.min.js"></script>
+	<link rel="stylesheet" href="./css/main.css">
 </head>
+
 <body>
-		<!-- Your code goes here-->
+	<div class="columns mt-2 is-variable is-1 is-centered is-flex is-flex-wrap-wrap">
+		<div class="v-tabs">
+			<ul>
+				<li class="is-active">
+					<a>
+						<span>XOR Logic</span>
+					</a>
+				</li>
+				<li>
+					<a>
+						<span>XNOR Logic</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
 
-	<p><li>Make sure that you have<a href="../../../Introduction.html" target="_PARENT"> prerequisites</a> installed to run experiment</li> </p>
-	<p>Click <a href="exp1/exp1.html">here</a> for the experiment</p>
+	<div class="columns is-centered is-flex">
+		<div class="column is-6-desktop is-10-tablet is-10-mobile">
+			<div class="v-collapsible-instruction-container">
+				<div class="v-collapsible is-size-5">Instructions</div>
+				<div class="v-content">
+					<ul style="list-style: disc;">
+						<li>Click or tap on an element in the tool bar to place it in the workspace</li>
+						<li>Double click on a wire to delete it</li>
+						<li>Double click or long press on input element to change it's value</li>
+						<li>If you did anything wrong click on reset button</li>
+						<li>Select the appropriate tab and click on validate after completion of circuit</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
+	<div class="columns is-variable is-1 is-centered is-flex is-flex-wrap-wrap">
+		<div id="start" class="column is-2-desktop is-2-tablet is-3-mobile center-content">
+			<button class="v-button" onclick="xorValid()">Validate</button>
+		</div>
+		<div id="restart" class="column is-2-desktop is-2-tablet is-3-mobile center-content">
+			<button class="v-button" onclick="location.reload()">Reset</button>
+		</div>
+	</div>
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+	<div class="columns is-variable is-1 is-centered is-flex is-flex-wrap-wrap">
+		<div class="column is-2-desktop is-3-tablet is-2-mobile center-content">
+			<div class="v-datalist-container">
+				<div class="v-datalist-title">
+					ToolBar
+				</div>
+				<div class="v-datalist-row toolbar-item-list">
+					<div class="toolbar-component" onclick="compPmos()">
+						<div class="each-toolbar-component has-text-centered">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+								version="1.1" viewBox="-0.5 -0.5 84 84">
+								<g>
+									<path d="M 31 61 L 31 21" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
+										stroke-miterlimit="10" pointer-events="stroke" />
+									<path d="M 41 61 L 41 21" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
+										stroke-miterlimit="10" pointer-events="stroke" />
+									<path d="M 41 31 L 61 31 L 61 1" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
+										stroke-miterlimit="10" pointer-events="stroke" />
+									<path d="M 61 81 L 61 51 L 41 51" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
+										stroke-miterlimit="10" pointer-events="stroke" />
+									<path d="M 1 41 L 17.67 41" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
+										stroke-miterlimit="10" pointer-events="stroke" />
+									<ellipse cx="23.02" cy="40.11" rx="5.357142857142858" ry="5.357142857142858"
+										fill="none" stroke="rgb(0, 0, 0)" stroke-width="3" pointer-events="all" />
+								</g>
+							</svg>
+							PMOS
+						</div>
+					</div>
+					<div class="toolbar-component" onclick="compNmos()">
+						<div class="each-toolbar-component has-text-centered">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+								version="1.1" viewBox="-0.5 -0.5 84 84">
+								<g>
+									<path d="M 31 61 L 31 21" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
+										stroke-miterlimit="10" pointer-events="stroke" />
+									<path d="M 41 61 L 41 21" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
+										stroke-miterlimit="10" pointer-events="stroke" />
+									<path d="M 41 31 L 61 31 L 61 1" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
+										stroke-miterlimit="10" pointer-events="stroke" />
+									<path d="M 61 81 L 61 51 L 41 51" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
+										stroke-miterlimit="10" pointer-events="stroke" />
+									<path d="M 1 41 L 31 41" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
+										stroke-miterlimit="10" pointer-events="stroke" />
+								</g>
+							</svg>
+							NMOS
+						</div>
+					</div>
+					<div class="toolbar-component" onclick="compVdd()">
+						<div class="each-toolbar-component has-text-centered">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+								version="1.1" viewBox="-0.5 -6 44 34">
+								<g>
+									<path d="M 21 31 L 21 1 L 1 1 L 41 1" fill="none" stroke="rgb(0, 0, 0)"
+										stroke-width="2" stroke-miterlimit="10" pointer-events="stroke" />
+								</g>
+							</svg>
+							VDD
+						</div>
+					</div>
+					<div class="toolbar-component" onclick="compGround()">
+						<div class="each-toolbar-component has-text-centered">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+								version="1.1" viewBox="-0.5 8 64 44">
+								<g>
+									<path d="M 31 1 L 31 21 L 1 21 L 61 21" fill="none" stroke="rgb(0, 0, 0)"
+										stroke-width="2.5" stroke-miterlimit="10" pointer-events="stroke" />
+									<path d="M 11 31 L 51 31" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2.5"
+										stroke-miterlimit="10" pointer-events="stroke" />
+									<path d="M 21 41 L 41 41" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2.5"
+										stroke-miterlimit="10" pointer-events="stroke" />
+								</g>
+							</svg>
+							Ground
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="column is-7-desktop is-9-tablet is-10-mobile center-content">
+			<div class="is-flex is-flex-wrap-wrap center-content simulation-container" id="diagram">
+			</div>
+		</div>
+
+		<div class="column is-3-desktop is-8-tablet is-8-mobile center-content">
+			<div class="v-datalist-container">
+				<div class="v-datalist-title">
+					Observation
+				</div>
+				<div class="v-datalist-row" id="obs-table">
+					<div class="v-table-wrap">
+						<table class="table is-bordered is-fullwidth">
+							<thead id="table-head">
+								<tr>
+									<th colspan="2">Inputs</th>
+									<th colspan="1">Expected Values</th>
+									<th colspan="1">Observed Values</th>
+								</tr>
+								<tr>
+									<th>Input 1</th>
+									<th>Input 2</th>
+									<th>Output</th>
+									<th>Output</th>
+								</tr>
+							</thead>
+							<tbody id="table-body">
+							</tbody>
+						</table>
+					</div>
+					<div id="result"></div>
+				</div>
+				<div id="output-box">
+
+				</div>
+				<div class="v-datalist-row text-danger" id="error-container" style="display:none;">
+					Required no. of components of this type are already present in the workspace
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		const connectionMap = new Map();
+		const listPmos = [];
+		const listNmos = [];
+		const listInput = [];
+		const listOutput = [];
+		const listGround = [];
+		const listVdd = [];
+		const listInverter = [];
+
+		const container = document.getElementById("diagram");
+		container.addEventListener("contextmenu", function (e) {
+			e.preventDefault();
+		});
+
+		let pmosNand = 0;
+		let nmosNand = 0;
+
+		const currentTab = { XOR: 0, XNOR: 1 }
+		let selectedTab = currentTab.XOR
+		const tabs = document.querySelectorAll('.v-tabs li');
+
+		tabs.forEach(tab => {
+			tab.addEventListener('click', () => {
+				tabs.forEach(item => item.classList.remove('is-active'));
+				tab.classList.add('is-active');
+
+				let parent = tab.parentNode;
+				selectedTab = Array.prototype.indexOf.call(parent.children, tab);
+			})
+		})
+
+	</script>
+
+	<script src="js/components.js"></script>
+	<script src="js/integrate.js"></script>
+	<script src="js/circuit.js"></script>
+	<script src="js/xor.js"></script>
+
+	<script>
+		compInput0()
+		compInput1()
+		compInput2()
+		compInput3()
+		compOutput()
+	</script>
+
+	<script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
 </body>
+
 </html>

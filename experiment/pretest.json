@@ -1,0 +1,62 @@
+[
+    {
+        "question": "1. Which of the following gates can be used as even parity generator?",
+        "answers": {
+            "a": "XNOR",
+            "b": "XOR",
+            "c": "OR",
+            "d": "NOR"
+        },
+        "correctAnswer": "b"
+    },
+    {
+        "question": "2. Which of the following gates can be used as even parity generator?",
+        "answers": {
+            "a": "XNOR",
+            "b": "XOR",
+            "c": "OR",
+            "d": "NOR"
+        },
+        "correctAnswer": "a"
+    },
+    {
+        "question": "3. What is the output of the following gate? <img src='images/AND_NOT_exp3.png'>",
+        "answers": {
+            "a": "Inverter",
+            "b": "Output is always low",
+            "c": "Output is always high",
+            "d": "Output is same as input"
+        },
+        "correctAnswer": "c"
+    },
+    {
+        "question": " 4. How many NOR gates are required for realizing XOR gate?",
+        "answers": {
+            "a": "4",
+            "b": "3",
+            "c": "5",
+            "d": "6"
+        },
+        "correctAnswer": "c"
+    },
+    {
+        "question": "5. Which of the following gates can be used for parity detection?",
+        "answers": {
+            "a": "XOR",
+            "b": "XNOR",
+            "c": "Both",
+            "d": "None"
+        },
+        "correctAnswer": "c"
+    },
+    {
+        "question": "6. The following gate acts as <img src='images/Bubbled_XOR_exp4.png'>",
+        "answers": {
+            "a": "XOR",
+            "b": "XNOR",
+            "c": "AND",
+            "d": "None of the above"
+        },
+        "correctAnswer": "b"
+    }
+]
