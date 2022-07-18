@@ -1,9 +1,41 @@
 'use strict';
 
-function compPmos() {
+let count = { PMOS: 0, NMOS: 0, VDD: 0, Ground: 0, Inverter: 0, Mux: 0, Latch: 0, Transistor: 0, Clock: 0, Clockbar: 0 }
+let maxCount = { PMOS: 4, NMOS: 4, VDD: 1, Ground: 1, Inverter: 0, Mux: 0, Latch: 0, Transistor: 0, Clock: 0, Clockbar: 0 }
+import { listGround, listVdd, listInput, listOutput, listPmos, listNmos, refreshObservations } from './main.js';
+import { jsplumbInstance, addInstancePmos, addInstanceNmos, addInstanceFinalInput, addInstanceFinalOutput, addInstanceGround, addInstanceVdd } from './components.js';
+import {checkAndUpdate} from './circuit.js';
+import {modifyOutput, circuitValid, showTruthTable} from './xor.js';
+
+window.compPmos = compPmos;
+window.compNmos = compNmos;
+window.compVdd = compVdd;
+window.compGround = compGround;
+window.xorValid = xorValid;
+
+export function resetCounts() {
+    count = { PMOS: 0, NMOS: 0, VDD: 0, Ground: 0, Inverter: 0, Mux: 0, Latch: 0, Transistor: 0, Clock: 0, Clockbar: 0 }
+    maxCount = { PMOS: 4, NMOS: 4, VDD: 1, Ground: 1, Inverter: 0, Mux: 0, Latch: 0, Transistor: 0, Clock: 0, Clockbar: 0 }
+}
+
+function printExcessComponents() {
+    const result = document.getElementById("error-container")
+    result.innerHTML = "Required no. of components of this type are already present in the workspace";
+    result.className = "text-danger";
+}
+
+export function xorValid() {
+    refreshObservations();
+    checkAndUpdate();
+    modifyOutput();
+    circuitValid();
+    showTruthTable();
+}
+
+export function compPmos() {
     maxCount.PMOS -= 1
     if (maxCount.PMOS < 0) {
-        document.getElementById('error-container').style.display = 'flex';
+        printExcessComponents();
         return;
     }
 
@@ -37,10 +69,10 @@ function compPmos() {
     addInstancePmos(id);
 }
 
-function compNmos() {
+export function compNmos() {
     maxCount.NMOS -= 1;
     if (maxCount.NMOS < 0) {
-        document.getElementById('error-container').style.display = 'flex';
+        printExcessComponents();
         return;
     }
 
@@ -72,10 +104,10 @@ function compNmos() {
     addInstanceNmos(id);
 }
 
-function compVdd() {
+export function compVdd() {
     maxCount.VDD -= 1;
     if (maxCount.VDD < 0) {
-        document.getElementById('error-container').style.display = 'flex';
+        printExcessComponents();
         return;
     }
 
@@ -100,11 +132,11 @@ function compVdd() {
     addInstanceVdd(id);
 }
 
-function compGround() {
+export function compGround() {
 
     maxCount.Ground -= 1;
     if (maxCount.Ground < 0) {
-        document.getElementById('error-container').style.display = 'flex';
+        printExcessComponents();
         return;
     }
 
@@ -130,7 +162,7 @@ function compGround() {
     addInstanceGround(id);
 }
 
-function compOutput() {
+export function compOutput() {
     const id = "output0";
     const svgElement = document.createElement('div');
     svgElement.innerHTML = 'Output<br>-'
@@ -190,7 +222,7 @@ function compOutput() {
         }.bind(m, i), u)
     }
 
-    function v(t) {
+    function v() {
         var a;
         (a = n) && (e.cancelAnimationFrame ? e.cancelAnimationFrame(a.value) : e.webkitCancelAnimationFrame ? e.webkitCancelAnimationFrame(a.value) : e.webkitCancelRequestAnimationFrame ? e.webkitCancelRequestAnimationFrame(a.value) : e.mozCancelRequestAnimationFrame ? e.mozCancelRequestAnimationFrame(a.value) : e.oCancelRequestAnimationFrame ? e.oCancelRequestAnimationFrame(a.value) : e.msCancelRequestAnimationFrame ? e.msCancelRequestAnimationFrame(a.value) : clearTimeout(a)), n = null
     }
@@ -201,7 +233,7 @@ function compOutput() {
     }, !0), t.addEventListener("wheel", v, !0), t.addEventListener("scroll", v, !0), t.addEventListener(i, function (e) { u = e.clientX, r = e.clientY, l(e) }, !0)
 }(window, document);
 
-function compInput0() {
+export function compInput0() {
     const id = "input0";
     const svgElement = document.createElement('div');
     svgElement.innerHTML = 'Input 1<br>1'
@@ -274,7 +306,7 @@ function compInput0() {
 
 }
 
-function compInput1() {
+export function compInput1() {
     const id = "input1";
     const svgElement = document.createElement('div');
     svgElement.innerHTML = 'Input 2<br>1'
@@ -347,7 +379,7 @@ function compInput1() {
 
 }
 
-function compInput2() {
+export function compInput2() {
     const id = "input2";
     const svgElement = document.createElement('div');
     svgElement.innerHTML = '<br><div style="text-decoration:overline">Input 1</div>0'
@@ -375,7 +407,7 @@ function compInput2() {
 
 }
 
-function compInput3() {
+export function compInput3() {
     const id = "input3";
     const svgElement = document.createElement('div');
     svgElement.innerHTML = '<br><div style="text-decoration:overline">Input 2</div>0'

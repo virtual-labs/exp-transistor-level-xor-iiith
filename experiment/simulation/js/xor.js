@@ -1,14 +1,7 @@
 'use strict';
-
-function xorValid() {
-    checkAndUpdate();
-    modifyOutput();
-    circuitValid();
-    showTruthTable();
-    document.getElementById('error-container').style = 'display:none;';
-}
-
-function showTruthTable() {
+import {connectionMap, listInput, selectedTab, currentTab} from './main.js';
+import { getTruthValue, checkAndUpdate } from './circuit.js';
+export function showTruthTable() {
     const output = [0, 0, 0, 0];
     const tableBody = document.getElementById("table-body");
     const divInput0 = document.getElementById("input0");
@@ -46,9 +39,9 @@ function showTruthTable() {
     checkAndUpdate();
     output[3] = getTruthValue();
     if (selectedTab === 0) {
-        tableBody.innerHTML = `<tr><td>0</td><td>0</td><td>0</td><td>${output[0]}</td></tr><tr><td>0</td><td>1</td><td>1</td><td>${output[1]}</td></tr><tr><td>1</td><td>0</td><td>1</td><td>${output[2]}</td></tr><tr><td>1</td><td>1</td><td>0</td><td>${output[3]}</td></tr>`;
+        tableBody.innerHTML = `<tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0</td></tr>`;
     } else {
-        tableBody.innerHTML = `<tr><td>0</td><td>0</td><td>1</td><td>${output[0]}</td></tr><tr><td>0</td><td>1</td><td>0</td><td>${output[1]}</td></tr><tr><td>1</td><td>0</td><td>0</td><td>${output[2]}</td></tr><tr><td>1</td><td>1</td><td>1</td><td>${output[3]}</td></tr>`;
+        tableBody.innerHTML = `<tr><td>0</td><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td></tr>`;
     }
     listInput[0].input = initialInput0;
     listInput[1].input = initialInput1;
@@ -57,12 +50,12 @@ function showTruthTable() {
     checkAndUpdate()
 }
 
-function modifyOutput() {
+export function modifyOutput() {
     const divOutput0 = document.getElementById("output0");
     divOutput0.innerHTML = 'Output<br>' + getTruthValue();
 }
 
-function permutator(inputArr) {
+export function permutator(inputArr) {
     const results = [];
 
     function permute(arr, memo) {
@@ -85,7 +78,7 @@ function permutator(inputArr) {
     return permute(inputArr);
 }
 
-function checkXor() {
+export function checkXor() {
     const permutatorMap = permutator([0, 1, 2, 3])
     let xorCircuitValid = 0;
     for (let i = 0; i < permutatorMap.length; i++) {
@@ -107,7 +100,7 @@ function checkXor() {
     return xorCircuitValid;
 }
 
-function checkXnor() {
+export function checkXnor() {
     const permutatorMap = permutator([0, 1, 2, 3])
     let xnorCircuitValid = 0;
     for (let i = 0; i < permutatorMap.length; i++) {
@@ -129,7 +122,7 @@ function checkXnor() {
     return xnorCircuitValid;
 }
 
-function circuitValid() {
+export function circuitValid() {
     let xorCircuitValid = checkXor();
     let xnorCircuitValid = checkXnor();
     // check if correct xor, xnor gate is made using correct components
@@ -142,7 +135,7 @@ function circuitValid() {
     }
 }
 
-function changeObservation(htmlText, removedClass, addedClass) {
+export function changeObservation(htmlText, removedClass, addedClass) {
     const observationBoxElem = document.getElementById("output-box");
     observationBoxElem.innerHTML = htmlText;
     observationBoxElem.classList.remove(removedClass);

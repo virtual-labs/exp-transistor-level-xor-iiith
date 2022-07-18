@@ -1,10 +1,8 @@
 // This function checks map when called
 'use strict';
-
-function checkAndUpdate() {
-    // these variables are for pseudo nmos circuit
-    nmosNand = 0;
-    pmosNand = 0;
+import {connectionMap, listGround, listVdd, listInput, listOutput, listPmos, listNmos, listInverter} from './main.js';
+import { checkXnor,checkXor } from './xor.js';
+export function checkAndUpdate() {
     listOutput[0].voltage = 0;
     // if any vdd is connected to any pmos store voltage
     for (let i = 0; i < listVdd.length; i++) {
@@ -102,7 +100,6 @@ function checkAndUpdate() {
             if (connectionMap.has(svgElement)) {
                 if (listPmos[i].outTerminal === 1) {
                     listOutput[j].voltage = listPmos[i].outVoltage;
-                    pmosNand++;
                 }
                 if (listPmos[i].outTerminal === -1) {
                     listOutput[j].voltage = listPmos[i].outVoltage;
@@ -118,14 +115,13 @@ function checkAndUpdate() {
                 // if nmos 
                 if (listNmos[i].outTerminal === 1) {
                     listOutput[j].voltage = listNmos[i].outVoltage;
-                    nmosNand++;
                 }
             }
         }
     }
 }
 
-function getTruthValue() {
+export function getTruthValue() {
     const out = listOutput[0].voltage
     const xorIsValid = checkXor()
     const xnorIsValid = checkXnor()

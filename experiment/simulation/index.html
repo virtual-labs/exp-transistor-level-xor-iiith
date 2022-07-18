@@ -29,29 +29,32 @@
 		</div>
 	</div>
 
-	<div class="columns is-centered is-flex">
-		<div class="column is-6-desktop is-10-tablet is-10-mobile">
-			<div class="v-collapsible-instruction-container">
-				<div class="v-collapsible is-size-5">Instructions</div>
-				<div class="v-content">
-					<ul style="list-style: disc;">
-						<li>Click or tap on an element in the tool bar to place it in the workspace</li>
-						<li>Double click on a wire to delete it</li>
-						<li>Double click or long press on input element to change it's value</li>
-						<li>If you did anything wrong click on reset button</li>
-						<li>Select the appropriate tab and click on validate after completion of circuit</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+	<div class="columns is-centered">
+        <div class="column">
+            <div class="v-collapsible-instruction-container v-instruction-container">
+                <div class="v-collapsible is-size-5" id="task-description">
+                    Instructions
+                </div>
+                <div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+                    <ul style="list-style: disc;">
+                        <li>Click on components on the left side to add them to the circuit board.</li>
+                        <li>Drag and drop components to move them around, connect them using wires by dragging your
+                            cursor from one endpoint to another.</li>
+                        <li>Double click on a wire to delete it.</li>
+                        <li>Double click or long press on input element to change it's value</li>
+                        <li>Select the appropriate tab and click on validate after completion of circuit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<div class="columns is-variable is-1 is-centered is-flex is-flex-wrap-wrap">
+	<div class="columns is-variable is-1 is-centered is-flex-wrap-wrap">
 		<div id="start" class="column is-2-desktop is-2-tablet is-3-mobile center-content">
 			<button class="v-button" onclick="xorValid()">Validate</button>
 		</div>
 		<div id="restart" class="column is-2-desktop is-2-tablet is-3-mobile center-content">
-			<button class="v-button" onclick="location.reload()">Reset</button>
+			<button class="v-button" onclick="refreshWorkingArea()">Reset</button>
 		</div>
 	</div>
 
@@ -66,19 +69,13 @@
 						<div class="each-toolbar-component has-text-centered">
 							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 								version="1.1" viewBox="-0.5 -0.5 84 84">
-								<g>
-									<path d="M 31 61 L 31 21" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
-										stroke-miterlimit="10" pointer-events="stroke" />
-									<path d="M 41 61 L 41 21" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
-										stroke-miterlimit="10" pointer-events="stroke" />
-									<path d="M 41 31 L 61 31 L 61 1" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
-										stroke-miterlimit="10" pointer-events="stroke" />
-									<path d="M 61 81 L 61 51 L 41 51" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
-										stroke-miterlimit="10" pointer-events="stroke" />
-									<path d="M 1 41 L 17.67 41" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
-										stroke-miterlimit="10" pointer-events="stroke" />
-									<ellipse cx="23.02" cy="40.11" rx="5.357142857142858" ry="5.357142857142858"
-										fill="none" stroke="rgb(0, 0, 0)" stroke-width="3" pointer-events="all" />
+								<g class="demo-transistor">
+									<path d="M 31 61 L 31 21" />
+									<path d="M 41 61 L 41 21" />
+									<path d="M 41 31 L 61 31 L 61 1" />
+									<path d="M 61 81 L 61 51 L 41 51" />
+									<path d="M 1 41 L 17.67 41" />
+									<ellipse cx="23.02" cy="40.11" rx="5.357142857142858" ry="5.357142857142858" />
 								</g>
 							</svg>
 							PMOS
@@ -88,17 +85,12 @@
 						<div class="each-toolbar-component has-text-centered">
 							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 								version="1.1" viewBox="-0.5 -0.5 84 84">
-								<g>
-									<path d="M 31 61 L 31 21" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
-										stroke-miterlimit="10" pointer-events="stroke" />
-									<path d="M 41 61 L 41 21" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
-										stroke-miterlimit="10" pointer-events="stroke" />
-									<path d="M 41 31 L 61 31 L 61 1" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
-										stroke-miterlimit="10" pointer-events="stroke" />
-									<path d="M 61 81 L 61 51 L 41 51" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
-										stroke-miterlimit="10" pointer-events="stroke" />
-									<path d="M 1 41 L 31 41" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"
-										stroke-miterlimit="10" pointer-events="stroke" />
+								<g class="demo-transistor">
+									<path d="M 31 61 L 31 21" />
+									<path d="M 41 61 L 41 21" />
+									<path d="M 41 31 L 61 31 L 61 1" />
+									<path d="M 61 81 L 61 51 L 41 51" />
+									<path d="M 1 41 L 31 41" />
 								</g>
 							</svg>
 							NMOS
@@ -108,9 +100,8 @@
 						<div class="each-toolbar-component has-text-centered">
 							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 								version="1.1" viewBox="-0.5 -6 44 34">
-								<g>
-									<path d="M 21 31 L 21 1 L 1 1 L 41 1" fill="none" stroke="rgb(0, 0, 0)"
-										stroke-width="2" stroke-miterlimit="10" pointer-events="stroke" />
+								<g class="demo-transistor">
+									<path d="M 21 31 L 21 1 L 1 1 L 41 1" />
 								</g>
 							</svg>
 							VDD
@@ -120,13 +111,10 @@
 						<div class="each-toolbar-component has-text-centered">
 							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 								version="1.1" viewBox="-0.5 8 64 44">
-								<g>
-									<path d="M 31 1 L 31 21 L 1 21 L 61 21" fill="none" stroke="rgb(0, 0, 0)"
-										stroke-width="2.5" stroke-miterlimit="10" pointer-events="stroke" />
-									<path d="M 11 31 L 51 31" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2.5"
-										stroke-miterlimit="10" pointer-events="stroke" />
-									<path d="M 21 41 L 41 41" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2.5"
-										stroke-miterlimit="10" pointer-events="stroke" />
+								<g class="demo-transistor">
+									<path d="M 31 1 L 31 21 L 1 21 L 61 21" />
+									<path d="M 11 31 L 51 31" />
+									<path d="M 21 41 L 41 41" />
 								</g>
 							</svg>
 							Ground
@@ -152,13 +140,11 @@
 							<thead id="table-head">
 								<tr>
 									<th colspan="2">Inputs</th>
-									<th colspan="1">Expected Values</th>
-									<th colspan="1">Observed Values</th>
+									<th colspan="1">Observations</th>
 								</tr>
 								<tr>
 									<th>Input 1</th>
 									<th>Input 2</th>
-									<th>Output</th>
 									<th>Output</th>
 								</tr>
 							</thead>
@@ -171,60 +157,14 @@
 				<div id="output-box">
 
 				</div>
-				<div class="v-datalist-row text-danger" id="error-container" style="display:none;">
-					Required no. of components of this type are already present in the workspace
+				<div class="v-datalist-row text-danger" id="error-container">
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<script>
-		const connectionMap = new Map();
-		const listPmos = [];
-		const listNmos = [];
-		const listInput = [];
-		const listOutput = [];
-		const listGround = [];
-		const listVdd = [];
-		const listInverter = [];
 
-		const container = document.getElementById("diagram");
-		container.addEventListener("contextmenu", function (e) {
-			e.preventDefault();
-		});
-
-		let pmosNand = 0;
-		let nmosNand = 0;
-
-		const currentTab = { XOR: 0, XNOR: 1 }
-		let selectedTab = currentTab.XOR
-		const tabs = document.querySelectorAll('.v-tabs li');
-
-		tabs.forEach(tab => {
-			tab.addEventListener('click', () => {
-				tabs.forEach(item => item.classList.remove('is-active'));
-				tab.classList.add('is-active');
-
-				let parent = tab.parentNode;
-				selectedTab = Array.prototype.indexOf.call(parent.children, tab);
-			})
-		})
-
-	</script>
-
-	<script src="js/components.js"></script>
-	<script src="js/integrate.js"></script>
-	<script src="js/circuit.js"></script>
-	<script src="js/xor.js"></script>
-
-	<script>
-		compInput0()
-		compInput1()
-		compInput2()
-		compInput3()
-		compOutput()
-	</script>
-
+	<script type="module" src="js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
 </body>
 

@@ -150,3 +150,16 @@
 #output-box {
   overflow: auto;
 }
+
+.v-instruction-container {
+  border: .2rem solid #97d23d;
+  justify-content: flex-start;
+}
+
+.demo-transistor {
+  fill: none;
+  stroke: rgb(0, 0, 0);
+  stroke-width: 3;
+  stroke-miterlimit: 10;
+  pointer-events: stroke;
+}
