@@ -61,6 +61,10 @@ const inputDots = [
 // 9 & 10 from VDD
 // 11 & 12 from GND
 
+const outputDots = [
+    document.createElementNS(svgns, "circle")
+];
+
 
 let decide = false;
 let circuitStarted = false;
@@ -110,6 +114,12 @@ function inputTextDisappear() {
     }
 }
 
+function outputDotsDisappear() {
+    for (const outputDot of outputDots) {
+        objectDisappear(outputDot);
+    }
+}
+
 // function to appear the input text
 function clearObservation() {
     observ.innerHTML = EMPTY;
@@ -117,6 +127,7 @@ function clearObservation() {
 function allDisappear() {
     inputDotsDisappear();
     outputDisappear();
+    outputDotsDisappear();
     inputTextDisappear();
     for (const object of objects) {
         fillColor(object, "#008000");
@@ -239,7 +250,6 @@ function stopCircuit() {
         observ.innerHTML = "Simulation has been stopped.";
         decide = false;
         status.innerHTML = "Start";
-        speed.selectedIndex = 0;
     }
     else if (timeline.progress() === 1) {
         observ.innerHTML = "Please Restart the simulation";
@@ -248,21 +258,19 @@ function stopCircuit() {
 function startCircuit() {
     if (circuitStarted) {
         timeline.play();
-        timeline.timeScale(1);
+        timeline.timeScale(parseInt(speed.value));
         observ.innerHTML = "Simulation has started";
         decide = true;
         status.innerHTML = "Pause";
-        speed.selectedIndex = 0;
     }
     else {
         if (textInput[0].textContent !== "2" && textInput[1].textContent !== "2" && textInput[2].textContent !== "2") {
             circuitStarted = true;
             timeline.play();
-            timeline.timeScale(1);
+            timeline.timeScale(parseInt(speed.value));
             observ.innerHTML = "Simulation has started.";
             decide = true;
             status.innerHTML = "Pause";
-            speed.selectedIndex = 0;
         }
         else if(textInput[0].textContent === "2") {
             observ.innerHTML = "Please set the value of input A and A Bar to either 0 or 1";
@@ -287,6 +295,15 @@ function initInputDots() {
     setter("0", inputDots[10]);
     setter("0", inputDots[11]);
 }
+
+function initOutputDots() {
+    //sets the coordinates of the input dots
+    for (const outputDot of outputDots) {
+        fillInputDots(outputDot, 200, 200, 15, "#FF0000");
+        svg.append(outputDot);
+    }
+}
+
 
 function simulator1() {
     timeline.to(inputDots[0], {
@@ -481,11 +498,11 @@ function simulator1() {
 
 function simulator2(){
     if(textInput[0].textContent === textInput[2].textContent){
-        setter("0", inputDots[0]);
+        setter("0", outputDots[0]);
         textOutput[0].textContent = "0";
-        objectAppear(inputDots[0]);
+        objectAppear(outputDots[0]);
         if(textInput[0].textContent === "0"){
-            timeline.to(inputDots[0], {
+            timeline.to(outputDots[0], {
                 motionPath: {
                     path: "#path15",
                     align: "#path15",
@@ -504,7 +521,7 @@ function simulator2(){
             }, 0);
         }
         else{
-            timeline.to(inputDots[0], {
+            timeline.to(outputDots[0], {
                 motionPath: {
                     path: "#path13",
                     align: "#path13",
@@ -524,11 +541,11 @@ function simulator2(){
         }
     }
     else{
-        setter("1", inputDots[0]);
-        objectAppear(inputDots[0]);
+        setter("1", outputDots[0]);
+        objectAppear(outputDots[0]);
         textOutput[0].textContent = "1";
         if(textInput[0].textContent === "1"){
-            timeline.to(inputDots[0], {
+            timeline.to(outputDots[0], {
                 motionPath: {
                     path: "#path12",
                     align: "#path12",
@@ -547,7 +564,7 @@ function simulator2(){
             }, 0);
         }
         else{
-            timeline.to(inputDots[0], {
+            timeline.to(outputDots[0], {
                 motionPath: {
                     path: "#path14",
                     align: "#path14",
@@ -583,14 +600,17 @@ outputCoordinates();
 inputDotsDisappear();
 initInputDots();
 outputDisappear();
+outputDotsDisappear();
+initOutputDots();
 
 timeline.add(inputDotsAppear, 0);
 timeline.add(simulator1, 0);
-timeline.add(inputDotsDisappear, 11);
+timeline.add(inputDotsDisappear, 13);
 timeline.add(simulator2, 11);
-timeline.add(inputDotsDisappear, 18);
+timeline.add(outputDotsDisappear, 18);
 timeline.add(outputHandler, 18);
 timeline.add(display, 18);
 timeline.eventCallback("onComplete", display);
 timeline.pause();
 inputDotsDisappear();
+outputDotsDisappear();
