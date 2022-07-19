@@ -20,14 +20,14 @@
         "correctAnswer": "a"
     },
     {
-        "question": "3. What is the output of the following gate? <img src='images/AND_NOT_exp3.png'>",
+        "question": "3. Reduce the expression xy(z+w)+y(xz+xz)+zw and tell the min number of transistor required for the design.",
         "answers": {
-            "a": "Inverter",
-            "b": "Output is always low",
-            "c": "Output is always high",
-            "d": "Output is same as input"
+            "a": "8",
+            "b": "6",
+            "c": "11",
+            "d": "12"
         },
-        "correctAnswer": "c"
+        "correctAnswer": "a"
     },
     {
         "question": " 4. How many NOR gates are required for realizing XOR gate?",
@@ -48,15 +48,5 @@
             "d": "None"
         },
         "correctAnswer": "c"
-    },
-    {
-        "question": "6. The following gate acts as <img src='images/Bubbled_XOR_exp4.png'>",
-        "answers": {
-            "a": "XOR",
-            "b": "XNOR",
-            "c": "AND",
-            "d": "None of the above"
-        },
-        "correctAnswer": "b"
     }
 ]

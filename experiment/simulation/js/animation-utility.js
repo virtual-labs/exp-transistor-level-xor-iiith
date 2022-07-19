@@ -1,11 +1,11 @@
-"use strict"
+"use strict";
 export function setCoordinates(xObject,yObject,textObject){
     gsap.set(textObject,{
         x: xObject,
         y: yObject,
         fontSize: "1.5rem",
         fontWeight: "bold",
-    })
+    });
 }
 export function fillInputDots(object,cxObject,cyObject,rObject,fillObject) {
     gsap.set(object, {

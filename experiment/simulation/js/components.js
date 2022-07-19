@@ -17,6 +17,8 @@ export const jsplumbInstance = jsPlumb.getInstance({
     connectionsDetachable: true,
 });
 
+export const wireColours = {"input":"#00ff00","pmos":"#0000ff","nmos":"#bf6be3","vdd":"#ff00ff","ground":"#00ffff"};
+
 jsplumbInstance.bind("ready", function () {
     jsplumbInstance.registerConnectionTypes({
         "red-connection": {
@@ -27,11 +29,24 @@ jsplumbInstance.bind("ready", function () {
     });
 });
 
+function getWireColor(sourceId)  {
+    let tempId = sourceId.slice(0, -1);
+    return wireColours[tempId];
+}
+
 export function editConnectionMap() {
     connectionMap.clear();
     jsplumbInstance.getAllConnections().forEach(connection => {
-        const connectionId = `${connection.sourceId}$${connection.targetId}`
-        connectionMap.set(connectionId, connection.targetId)
+        connection.setPaintStyle({
+            stroke: getWireColor(connection.sourceId),
+            strokeWidth: 3,
+        });
+        connection.setHoverPaintStyle({
+            stroke: getWireColor(connection.sourceId),
+            strokeWidth: 8,
+        });
+        const connectionId = `${connection.sourceId}$${connection.targetId}`;
+        connectionMap.set(connectionId, connection.targetId);
     });
 }
 

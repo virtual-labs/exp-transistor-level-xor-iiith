@@ -136,40 +136,56 @@ function allDisappear() {
 
 
 function setInputA() {
-    if (textInput[0].textContent !== "0" && timeline.progress() === 0) {
-        changeTo0(-5, 325, 0, 0);
-        changeTo1(-5,530, 1, 1);
+    if (timeline.progress() === 0) {
+        if (textInput[0].textContent !== "0") {
+            changeTo0(-5, 325, 0, 0);
+            changeTo1(-5, 530, 1, 1);
+        }
+        else {
+            changeTo1(-5, 325, 0, 0);
+            changeTo0(-5, 530, 1, 1);
+        }
+        setter(textInput[0].textContent, inputDots[0]);
+        setter(textInput[0].textContent, inputDots[1]);
+        setter(textInput[1].textContent, inputDots[2]);
+        setter(textInput[1].textContent, inputDots[3]);
     }
-    else if (textInput[0].textContent !== "1" && timeline.progress() === 0) {
-        changeTo1(-5, 325, 0, 0);
-        changeTo0(-5, 530, 1, 1);
+    else if (timeline.progress() === 1) {
+        observ.innerHTML = "Simulation has finished. Press Reset to start again";
     }
-    setter(textInput[0].textContent, inputDots[0]);
-    setter(textInput[0].textContent, inputDots[1]);
-    setter(textInput[1].textContent, inputDots[2]);
-    setter(textInput[1].textContent, inputDots[3]);
+    else {
+        observ.innerHTML = "Simulation has started wait for it to end";
+    }
 }
 function setInputB() {
-    if(textInput[2].textContent !== "0" && timeline.progress() === 0) {
-        changeTo0(-5, 675, 2, 2);
-        changeTo1(-5,180, 3, 3);
+    if (timeline.progress() === 0) {
+        if (textInput[2].textContent !== "0") {
+            changeTo0(-5, 675, 2, 2);
+            changeTo1(-5, 180, 3, 3);
+        }
+        else{
+            changeTo1(-5, 675, 2, 2);
+            changeTo0(-5, 180, 3, 3);
+        }
+        setter(textInput[2].textContent, inputDots[4]);
+        setter(textInput[2].textContent, inputDots[5]);
+        setter(textInput[3].textContent, inputDots[6]);
+        setter(textInput[3].textContent, inputDots[7]);
     }
-    else if (textInput[2].textContent !== "1" && timeline.progress() === 0) {
-        changeTo1(-5, 675, 2, 2);
-        changeTo0(-5, 180, 3, 3);
+    else if (timeline.progress() === 1) {
+        observ.innerHTML = "Simulation has finished. Press Reset to start again";
     }
-    setter(textInput[2].textContent, inputDots[4]);
-    setter(textInput[2].textContent, inputDots[5]);
-    setter(textInput[3].textContent, inputDots[6]);
-    setter(textInput[3].textContent, inputDots[7]);
+    else {
+        observ.innerHTML = "Simulation has started wait for it to end";
+    }
 }
 
-function setClock(){
-    if(textInput[1].textContent !== "0" && timeline.progress() === 0){
+function setClock() {
+    if (textInput[1].textContent !== "0") {
         changeTo0(146, 176, 1, 1);
         changeTo1(146, 576, 2, 2);
     }
-    else if(textInput[1].textContent !== "1" && timeline.progress() === 0){
+    else{
         changeTo1(146, 176, 1, 1);
         changeTo0(146, 576, 2, 2);
     }
@@ -210,7 +226,7 @@ function setter(value, component) {
     if (value === "1") {
         unsetColor(component);
     }
-    else if (value === "0") {
+    else{
         setColor(component);
     }
 }
@@ -240,18 +256,18 @@ function simulationStatus() {
     if (!decide) {
         startCircuit();
     }
-    else if (decide) {
+    else{
         stopCircuit();
     }
 }
 function stopCircuit() {
-    if (timeline.time() !== 0 && timeline.progress() !== 1) {
+    if (timeline.progress() !== 1) {
         timeline.pause();
         observ.innerHTML = "Simulation has been stopped.";
         decide = false;
         status.innerHTML = "Start";
     }
-    else if (timeline.progress() === 1) {
+    else{
         observ.innerHTML = "Please Restart the simulation";
     }
 }
@@ -272,10 +288,10 @@ function startCircuit() {
             decide = true;
             status.innerHTML = "Pause";
         }
-        else if(textInput[0].textContent === "2") {
+        else if (textInput[0].textContent === "2") {
             observ.innerHTML = "Please set the value of input A and A Bar to either 0 or 1";
         }
-        else if(textInput[2].textContent === "2") {
+        else if (textInput[2].textContent === "2") {
             observ.innerHTML = "Please set the value of input B and B Bar to either 0 or 1";
         }
         else if (timeline.progress() === 1) {
@@ -388,7 +404,7 @@ function simulator1() {
         yoyo: true,
         ease: "none",
         paused: false,
-    },0);
+    }, 0);
     timeline.to(inputDots[5], {
         motionPath: {
             path: "#path5",
@@ -403,7 +419,7 @@ function simulator1() {
         yoyo: true,
         ease: "none",
         paused: false,
-    },0);
+    }, 0);
     timeline.to(inputDots[6], {
         motionPath: {
             path: "#path6",
@@ -418,7 +434,7 @@ function simulator1() {
         yoyo: true,
         ease: "none",
         paused: false,
-    },0);
+    }, 0);
     timeline.to(inputDots[7], {
         motionPath: {
             path: "#path7",
@@ -433,7 +449,7 @@ function simulator1() {
         yoyo: true,
         ease: "none",
         paused: false,
-    },0);
+    }, 0);
     timeline.to(inputDots[8], {
         motionPath: {
             path: "#path8",
@@ -448,7 +464,7 @@ function simulator1() {
         yoyo: true,
         ease: "none",
         paused: false,
-    },0);
+    }, 0);
     timeline.to(inputDots[9], {
         motionPath: {
             path: "#path9",
@@ -463,7 +479,7 @@ function simulator1() {
         yoyo: true,
         ease: "none",
         paused: false,
-    },0);
+    }, 0);
     timeline.to(inputDots[10], {
         motionPath: {
             path: "#path10",
@@ -478,7 +494,7 @@ function simulator1() {
         yoyo: true,
         ease: "none",
         paused: false,
-    },0);
+    }, 0);
     timeline.to(inputDots[11], {
         motionPath: {
             path: "#path11",
@@ -493,15 +509,15 @@ function simulator1() {
         yoyo: true,
         ease: "none",
         paused: false,
-    },0);
+    }, 0);
 }
 
-function simulator2(){
-    if(textInput[0].textContent === textInput[2].textContent){
+function simulator2() {
+    if (textInput[0].textContent === textInput[2].textContent) {
         setter("0", outputDots[0]);
         textOutput[0].textContent = "0";
         objectAppear(outputDots[0]);
-        if(textInput[0].textContent === "0"){
+        if (textInput[0].textContent === "0") {
             timeline.to(outputDots[0], {
                 motionPath: {
                     path: "#path15",
@@ -509,7 +525,7 @@ function simulator2(){
                     autoRotate: true,
                     alignOrigin: [0.5, 0.5]
                 },
-        
+
                 duration: 7,
                 delay: 11,
                 repeat: 0,
@@ -517,10 +533,10 @@ function simulator2(){
                 yoyo: true,
                 ease: "none",
                 paused: false,
-        
+
             }, 0);
         }
-        else{
+        else {
             timeline.to(outputDots[0], {
                 motionPath: {
                     path: "#path13",
@@ -528,7 +544,7 @@ function simulator2(){
                     autoRotate: true,
                     alignOrigin: [0.5, 0.5]
                 },
-        
+
                 duration: 7,
                 delay: 11,
                 repeat: 0,
@@ -536,15 +552,15 @@ function simulator2(){
                 yoyo: true,
                 ease: "none",
                 paused: false,
-        
+
             }, 0);
         }
     }
-    else{
+    else {
         setter("1", outputDots[0]);
         objectAppear(outputDots[0]);
         textOutput[0].textContent = "1";
-        if(textInput[0].textContent === "1"){
+        if (textInput[0].textContent === "1") {
             timeline.to(outputDots[0], {
                 motionPath: {
                     path: "#path12",
@@ -552,7 +568,7 @@ function simulator2(){
                     autoRotate: true,
                     alignOrigin: [0.5, 0.5]
                 },
-        
+
                 duration: 7,
                 delay: 11,
                 repeat: 0,
@@ -560,10 +576,10 @@ function simulator2(){
                 yoyo: true,
                 ease: "none",
                 paused: false,
-        
+
             }, 0);
         }
-        else{
+        else {
             timeline.to(outputDots[0], {
                 motionPath: {
                     path: "#path14",
@@ -571,7 +587,7 @@ function simulator2(){
                     autoRotate: true,
                     alignOrigin: [0.5, 0.5]
                 },
-        
+
                 duration: 7,
                 delay: 11,
                 repeat: 0,
@@ -579,7 +595,7 @@ function simulator2(){
                 yoyo: true,
                 ease: "none",
                 paused: false,
-        
+
             }, 0);
         }
     }

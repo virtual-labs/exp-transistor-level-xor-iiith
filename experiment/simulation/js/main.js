@@ -3,13 +3,13 @@
 import { compInput0, compInput1, compInput2, compInput3, compOutput, resetCounts } from "./integrate.js";
 import { jsplumbInstance, editConnectionMap } from './components.js';
 export const connectionMap = new Map();
-export const listPmos = [];
-export const listNmos = [];
-export const listInput = [];
-export const listOutput = [];
-export const listGround = [];
-export const listVdd = [];
-export const listInverter = [];
+export let listPmos = [];
+export let listNmos = [];
+export let listInput = [];
+export let listOutput = [];
+export let listGround = [];
+export let listVdd = [];
+export let listInverter = [];
 
 const container = document.getElementById("diagram");
 container.addEventListener("contextmenu", function (e) {
@@ -18,8 +18,8 @@ container.addEventListener("contextmenu", function (e) {
 
 const EMPTY = "";
 
-export const currentTab = { XOR: 0, XNOR: 1 }
-export let selectedTab = currentTab.XOR
+export const currentTab = { XOR: 0, XNOR: 1 };
+export let selectedTab = currentTab.XOR;
 const tabs = document.querySelectorAll('.v-tabs li');
 
 tabs.forEach(tab => {
@@ -30,8 +30,8 @@ tabs.forEach(tab => {
         let parent = tab.parentNode;
         selectedTab = Array.prototype.indexOf.call(parent.children, tab);
         refreshWorkingArea();
-    })
-})
+    });
+});
 window.refreshWorkingArea = refreshWorkingArea;
 
 function emptyList() {
@@ -59,12 +59,12 @@ function emptyList() {
         let elem = document.getElementById(outputElem.id);
         elem.parentNode.removeChild(elem);
     }
-    listPmos.length = 0;
-    listNmos.length = 0;
-    listGround.length = 0;
-    listVdd.length = 0;
-    listInput.length = 0;
-    listOutput.length = 0;
+    listPmos = [];
+    listNmos = [];
+    listInput = [];
+    listOutput = [];
+    listGround = [];
+    listVdd = [];
 }
 
 export function refreshObservations() {

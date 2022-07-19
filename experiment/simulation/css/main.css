@@ -45,7 +45,7 @@
   border: 0.125rem solid green;
   width: 3.75rem;
   text-align: center;
-  cursor: move;
+  cursor: pointer;
   position: absolute;
   background-color: white;
   color: black;
