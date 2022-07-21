@@ -263,7 +263,7 @@ function simulationStatus() {
 function stopCircuit() {
     if (timeline.progress() !== 1) {
         timeline.pause();
-        observ.innerHTML = "Simulation has been stopped.";
+        observ.innerHTML = "Simulation has been Paused";
         decide = false;
         status.innerHTML = "Start";
     }
@@ -293,9 +293,6 @@ function startCircuit() {
         }
         else if (textInput[2].textContent === "2") {
             observ.innerHTML = "Please set the value of input B and B Bar to either 0 or 1";
-        }
-        else if (timeline.progress() === 1) {
-            observ.innerHTML = "Please Restart the simulation";
         }
     }
 }

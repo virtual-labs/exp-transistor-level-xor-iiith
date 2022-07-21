@@ -68,15 +68,5 @@
       "d": "10"
     },
     "correctAnswer": "d"
-  },
-  {
-    "question": "8. What will be the minimum number of transistor required for designing xy+xz+zy+xy+z",
-    "answers": {
-      "a": "6",
-      "b": "4",
-      "c": "3",
-      "d": "2"
-    },
-    "correctAnswer": "d"
   }
 ]
