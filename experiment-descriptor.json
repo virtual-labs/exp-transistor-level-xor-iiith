@@ -44,7 +44,7 @@
     {
       "target": "simulation.html",
       "source": "simulation/practice.html",
-      "label": "Simulation",
+      "label": "Practice",
       "unit-type": "task",
       "content-type": "simulation"
     },
