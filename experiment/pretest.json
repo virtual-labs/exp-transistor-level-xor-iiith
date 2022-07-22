@@ -10,27 +10,17 @@
         "correctAnswer": "b"
     },
     {
-        "question": "2. Which of the following gates can be used as even parity generator?",
+        "question": "2. Reduce the expression xy(z+w)+y(xz+xz)+zw and tell the min number of transistor required for the design.",
         "answers": {
-            "a": "XNOR",
-            "b": "XOR",
-            "c": "OR",
-            "d": "NOR"
+            "a": "8",
+            "b": "6",
+            "c": "11",
+            "d": "12"
         },
         "correctAnswer": "a"
     },
     {
-        "question": "3. What is the output of the following gate? <img src='images/AND_NOT_exp3.png'>",
-        "answers": {
-            "a": "Inverter",
-            "b": "Output is always low",
-            "c": "Output is always high",
-            "d": "Output is same as input"
-        },
-        "correctAnswer": "c"
-    },
-    {
-        "question": " 4. How many NOR gates are required for realizing XOR gate?",
+        "question": "3. How many NOR gates are required for realizing XOR gate?",
         "answers": {
             "a": "4",
             "b": "3",
@@ -40,7 +30,7 @@
         "correctAnswer": "c"
     },
     {
-        "question": "5. Which of the following gates can be used for parity detection?",
+        "question": "4. Which of the following gates can be used for parity detection?",
         "answers": {
             "a": "XOR",
             "b": "XNOR",
@@ -50,13 +40,13 @@
         "correctAnswer": "c"
     },
     {
-        "question": "6. The following gate acts as <img src='images/Bubbled_XOR_exp4.png'>",
+        "question": "5. What will be the minimum number of transistor required for designing xy+xz+zy+xy+z",
         "answers": {
-            "a": "XOR",
-            "b": "XNOR",
-            "c": "AND",
-            "d": "None of the above"
+          "a": "6",
+          "b": "4",
+          "c": "3",
+          "d": "2"
         },
-        "correctAnswer": "b"
-    }
+        "correctAnswer": "d"
+      }
 ]

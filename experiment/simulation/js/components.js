@@ -1,6 +1,7 @@
 'use strict';
+import { connectionMap } from './main.js';
 
-const jsplumbInstance = jsPlumb.getInstance({
+export const jsplumbInstance = jsPlumb.getInstance({
     container: diagram,
     maxConnections: -1,
     endpoint: {
@@ -16,6 +17,8 @@ const jsplumbInstance = jsPlumb.getInstance({
     connectionsDetachable: true,
 });
 
+export const wireColours = {"input":"#00ff00","pmos":"#0000ff","nmos":"#bf6be3","vdd":"#ff00ff","ground":"#00ffff"};
+
 jsplumbInstance.bind("ready", function () {
     jsplumbInstance.registerConnectionTypes({
         "red-connection": {
@@ -26,11 +29,24 @@ jsplumbInstance.bind("ready", function () {
     });
 });
 
-function editConnectionMap() {
+function getWireColor(sourceId)  {
+    let tempId = sourceId.slice(0, -1);
+    return wireColours[tempId];
+}
+
+export function editConnectionMap() {
     connectionMap.clear();
     jsplumbInstance.getAllConnections().forEach(connection => {
-        const connectionId = `${connection.sourceId}$${connection.targetId}`
-        connectionMap.set(connectionId, connection.targetId)
+        connection.setPaintStyle({
+            stroke: getWireColor(connection.sourceId),
+            strokeWidth: 3,
+        });
+        connection.setHoverPaintStyle({
+            stroke: getWireColor(connection.sourceId),
+            strokeWidth: 8,
+        });
+        const connectionId = `${connection.sourceId}$${connection.targetId}`;
+        connectionMap.set(connectionId, connection.targetId);
     });
 }
 
@@ -43,38 +59,35 @@ jsplumbInstance.bind("dblclick", function (ci) {
     editConnectionMap();
 });
 
-const count = { PMOS: 0, NMOS: 0, VDD: 0, Ground: 0, Inverter: 0, Mux: 0, Latch: 0, Transistor: 0, Clock: 0, Clockbar: 0 }
-const maxCount = { PMOS: 4, NMOS: 4, VDD: 1, Ground: 1, Inverter: 0, Mux: 0, Latch: 0, Transistor: 0, Clock: 0, Clockbar: 0 }
-
-function addInstancePmos(id) {
+export function addInstancePmos(id) {
     addInstance(id, [0.72, 1, 0, 1], -1, true);
     addInstance(id, [0, 0.5, -1, 0], -1, false);
     addInstance(id, [0.72, 0, 0, -1], -1, false);
 }
 
-function addInstanceNmos(id) {
+export function addInstanceNmos(id) {
     addInstance(id, [0.72, 1, 0, 1], -1, false);
     addInstance(id, [0, 0.5, -1, 0], -1, false);
     addInstance(id, [0.72, 0, 0, -1], -1, true);
 }
 
-function addInstanceVdd(id) {
+export function addInstanceVdd(id) {
     addInstance(id, [0.5, 1, 0, 1], -1, true);
 }
 
-function addInstanceGround(id) {
+export function addInstanceGround(id) {
     addInstance(id, [0.5, 0, 0, -1], -1, true);
 }
 
-function addInstanceFinalInput(id) {
+export function addInstanceFinalInput(id) {
     addInstance(id, [1, 0.5, 1, 0], -1, true);
 }
 
-function addInstanceFinalOutput(id) {
+export function addInstanceFinalOutput(id) {
     addInstance(id, [0, 0.5, -1, 0], -1, false);
 }
 
-function addInstance(id, position, num, src) {
+export function addInstance(id, position, num, src) {
     jsplumbInstance.addEndpoint(id, {
         endpoint: ["Dot", { radius: 5 }],
         anchor: position,
