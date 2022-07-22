@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/MotionPathPlugin.min.js"></script>
+    <title>
+        XNOR: Demo
+    </title>
+</head>
+
+<body>
+    <div class="container" style="margin-top: 1%;">
+        <div class="columns is-centered">
+            <div class="column is-one-quarter v-instruction-title">
+                Tasks
+            </div>
+            <div class="column">
+                <div class="v-tabs">
+                    <ul>
+                        <li id="task1" onclick="window.location.href = 'demo-xor.html'">
+                            <a>
+                                XOR Logic
+                            </a>
+                        </li>
+                        <li id="task2" class="is-active">
+                            <a>
+                                XNOR Logic
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="columns is-centered">
+            <div class="column">
+                <div class="v-collapsible-instruction-container v-instruction-container">
+                    <div class="v-collapsible is-size-5">Instructions</div>
+                    <div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+                        <ul style="list-style: disc;">
+                            <li><b>Start</b>- Starts the simulation after the inputs are properly selected. Default
+                                speed is 1x.</li>
+                            <li>Select the speed through dropdown menu</li>
+                            <li><b>Reset</b> - Resets the simulation</li>
+                            <li>Click on the green input bits to set their values.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="columns is-centered">
+        <div class="column" style="margin:auto;text-align:center">
+            <select class="speed-box" autocomplete="off" name="speed" onchange="setSpeed(this.value)" id="speed">
+                <option value="1">1x</option>
+                <option value="2">2x</option>
+                <option value="4">4x</option>
+            </select>
+            <button class="v-button" id="play-or-pause" onclick="simulationStatus()">Start</button>
+            <button class="v-button" id="restart" onclick="restartCircuit()">Reset</button>
+        </div>
+    </div>
+
+    <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start">
+        <div class="column is-7-desktop is-12-tablet is-12-mobile">
+            <div id="circuit-board">
+                <svg class="svg" xmlns="https://www.w3.org/2000/svg" width="100%" height="120%" viewBox="-60 -15 1020 1000">
+                    <!-- PMOS 1 -->
+                    <g class="demo-transistor">
+                        <path d="M 645 210 L 645 130" />
+                        <path d="M 670 210 L 670 130" />
+                        <path d="M 670 160 L 710 160 L 710 100" />
+                        <path d="M 710 245 L 710 180 L 670 180" />
+                        <path d="M 585 170 L 625.67 170" />
+                        <ellipse cx="631.02" cy="172.11" rx="8.3" ry="8.3" />
+                    </g>
+                    <!-- PMOS 2 -->
+                    <g class="demo-transistor">
+                        <path d="M 245 210 L 245 130" />
+                        <path d="M 270 210 L 270 130" />
+                        <path d="M 270 160 L 310 160 L 310 100" />
+                        <path d="M 310 245 L 310 180 L 270 180" />
+                        <path d="M 185 170 L 225.67 170" />
+                        <ellipse cx="230.02" cy="171.11" rx="8.3" ry="8.3" />
+                    </g>
+                    <!-- PMOS 3 -->
+                    <g class="demo-transistor">
+                        <path d="M 645 365 L 645 275" />
+                        <path d="M 670 365 L 670 275" />
+                        <path d="M 670 305 L 710 305 L 710 245" />
+                        <path d="M 710 390 L 710 325 L 670 325" />
+                        <path d="M 585 315 L 625.67 315" />
+                        <ellipse cx="630.02" cy="316.11" rx="8.3" ry="8.3" />
+                    </g>
+                    <!-- PMOS 4 -->
+                    <g class="demo-transistor">
+                        <path d="M 245 365 L 245 275" />
+                        <path d="M 270 365 L 270 275" />
+                        <path d="M 270 305 L 310 305 L 310 245" />
+                        <path d="M 310 390 L 310 325 L 270 325" />
+                        <path d="M 185 315 L 225.67 315" />
+                        <ellipse cx="230.02" cy="316.11" rx="8.3" ry="8.3" />
+                    </g>
+                    <!-- CMOS 1 -->
+                    <g class="demo-transistor">
+                        <path d="M 645 560 L 645 480" />
+                        <path d="M 670 560 L 670 480" />
+                        <path d="M 670 510 L 710 510 L 710 450" />
+                        <path d="M 710 595 L 710 530 L 670 530" />
+                        <path d="M 585 520 L 645 520" />
+                    </g>
+                    <!-- CMOS 2 -->
+                    <g class="demo-transistor">
+                        <path d="M 245 560 L 245 480" />
+                        <path d="M 270 560 L 270 480" />
+                        <path d="M 270 510 L 310 510 L 310 450" />
+                        <path d="M 310 595 L 310 530 L 270 530" />
+                        <path d="M 185 520 L 245 520" />
+                    </g>
+                    <!-- CMOS 3 -->
+                    <g class="demo-transistor">
+                        <path d="M 645 715 L 645 625" />
+                        <path d="M 670 715 L 670 625" />
+                        <path d="M 670 655 L 710 655 L 710 595" />
+                        <path d="M 710 740 L 710 675 L 670 675" />
+                        <path d="M 585 665 L 645 665" />
+                    </g>
+                    <!-- CMOS 4 -->
+                    <g class="demo-transistor">
+                        <path d="M 245 715 L 245 625" />
+                        <path d="M 270 715 L 270 625" />
+                        <path d="M 270 655 L 310 655 L 310 595" />
+                        <path d="M 310 740 L 310 675 L 270 675" />
+                        <path d="M 185 665 L 245 665" />
+                    </g>
+                    <!-- VDD -->
+                    <g class="demo-transistor">
+                        <path d="M 480 60 L 480 30 L 460 30 L 500 30" />
+                    </g>
+                    <!-- ground -->
+                    <g class="demo-transistor">
+                        <path d="M 480 770 L 480 790 L 450 790 L 510 790" />
+                        <path d="M 460 800 L 500 800" />
+                        <path d="M 470 810 L 490 810" />
+                    </g>
+                    <circle id="inputABar" cx="0" cy="172" r="20" onclick="setInputA()" class="demo-circles" />
+                    <circle id="inputBBar" cx="0" cy="317" r="20" onclick="setInputB()" class="demo-circles" />
+                    <circle id="inputA" cx="0" cy="522" r="20" onclick="setInputA()" class="demo-circles" />
+                    <circle id="inputB" cx="0" cy="667" r="20" onclick="setInputB()" class="demo-circles" />
+                    <circle id="output" cx="900" cy="417" r="20" class="demo-circles" />
+
+                    <!-- path from A to pmos 1-->
+                    <path id="path0" d="M 20 522 L 45 522 L 45 400 L 550 400 L 550 170 L 590 170" class="demo-input-A"/>
+                    <!-- path from A to cmos 1-->
+                    <path id="path1" d="M 20 522 L 45 522 L 45 400 L 550 400 L 550 520 L 590 520" class="demo-input-A"/>
+                    <!-- path from A Bar to pmos 2-->
+                    <path id="path2" d="M 20 170 L 190 170" class="demo-input-A-Bar"/>
+                    <!-- path from A Bar to cmos 2-->
+                    <path id="path3" d="M 20 170 L 100 170 L 100 520 L 190 520" class="demo-input-A-Bar"/>
+                    <!-- path from B Bar to pmos 3-->
+                    <path id="path6" d="M 20 315 L 190 315" class="demo-input-B-Bar"/>
+                    <!-- path from B Bar to cmos 3-->
+                    <path id="path7" d="M 20 315 L 150 315 L 150 430 L 500 430 L 500 665 L 590 665" class="demo-input-B-Bar"/>
+                    <!-- path from B to cmos 4-->
+                    <path id="path5" d="M 20 665 L 190 665" class="demo-input-B"/>
+                    <!-- path from B to pmos 4-->
+                    <path id="path4" d="M -20 665 L -45 665 L -45 80 L 500 80 L 500 315 L 590 315" class="demo-input-B"/>
+                    <!-- vdd to pmos 2 -->
+                    <path id="path9" d="M 480 60 L 480 100 L 310 100" class="demo-wires" />
+                    <!-- vdd to pmos 1 -->
+                    <path id="path8" d="M 480 60 L 480 100 L 710 100" class="demo-wires" />
+                    <!-- gnd to cmos -->
+                    <path id="path10" d="M 480 770 L 480 740 L 310 740" class="demo-wires" />
+                    <!-- gnd to cmos -->
+                    <path id="path11" d="M 480 770 L 480 740 L 710 740" class="demo-wires" />
+                    <!-- path from pmos to output -->
+                    <path id="path13" d="M 310 390 L 310 416 L 881 416" class="demo-wires" />
+                    <!-- path from cmos to output -->
+                    <path id="path15" d="M 310 450 L 310 416 L 881 416" class="demo-wires" />
+                    <!-- path from pmos to output -->
+                    <path id="path12" d="M 710 390 L 710 416 L 881 416" class="demo-wires" />
+                    <!-- path from cmos to output -->
+                    <path id="path14" d="M 710 450 L 710 416 L 881 416" class="demo-wires" />
+
+                    <text style="text-decoration: overline;" class="demo-text" x="-10" y="145">A</text>
+                    <text style="text-decoration: overline;" class="demo-text" x="-10" y="290">B</text>
+                    <text class="demo-text" x="-10" y="495">A</text>
+                    <text class="demo-text" x="-10" y="640">B</text>
+                    <text class="demo-text" x="880" y="385">Output</text>
+                </svg>
+            </div>
+        </div>
+        <div class="column is-3-desktop is-4-tablet is-12-mobile">
+            <div class="v-datalist-container components-list">
+                <div class="v-datalist-title">Observations</div>
+                <div class="v-datalist-row">
+                    <div id="observations"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/animation-xnor.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
+</body>
+
+</html>
