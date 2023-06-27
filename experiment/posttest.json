@@ -1,4 +1,6 @@
-[
+{
+  "version": 2.0,
+  "questions": [
   {
     "question": "1.Can you distinguish between AND and XNOR gate when both the inputs are 1?",
     "answers": {
@@ -7,7 +9,13 @@
       "c": "MAY or MAY NOT",
       "d": "None of the above"
     },
-    "correctAnswer": "a"
+    "correctAnswer": "a",
+    "explanations": {
+      "a":"",
+      "b":"",
+      "c":"",
+      "d":""},
+    "difficulty": "beginner"
   },
   {
     "question": "2. Choose the correct design of A+BC using NMOS only.",
@@ -17,7 +25,13 @@
       "c": "<img src='images/pic3.jpg'>",
       "d": "<img src='images/pic4.jpg'>"
     },
-    "correctAnswer": "c"
+    "correctAnswer": "c",
+    "explanations": {
+      "a":"",
+      "b":"",
+      "c":"",
+      "d":""},
+    "difficulty": "advanced"
   },
   {
     "question": "3. Choose the correct design of AC+BC using PMOS only.",
@@ -27,7 +41,13 @@
       "c": "<img src='images/pic1.jpg'>",
       "d": "<img src='images/pic2.jpg'>"
     },
-    "correctAnswer": "a"
+    "correctAnswer": "a",
+    "explanations": {
+      "a":"",
+      "b":"",
+      "c":"",
+      "d":""},
+    "difficulty": "advanced"
   },
   {
     "question": "4. In above question what is the minimum number of transistor required for making the design? ",
@@ -37,7 +57,13 @@
       "c": "5",
       "d": "3"
     },
-    "correctAnswer": "d"
+    "correctAnswer": "d",
+    "explanations": {
+      "a":"",
+      "b":"",
+      "c":"",
+      "d":""},
+    "difficulty": "advanced"
   },
   {
     "question": "5. Choose the correct design of ABC using complementary logic.",
@@ -47,7 +73,13 @@
       "c": "<img src='images/comp3.jpg'>",
       "d": "<img src='images/comp4.jpg'>"
     },
-    "correctAnswer": "b"
+    "correctAnswer": "b",
+    "explanations": {
+      "a":"",
+      "b":"",
+      "c":"",
+      "d":""},
+    "difficulty": "intermediate"
   },
   {
     "question": "6. Choose the correct design of A+B+C using complementary logic.",
@@ -57,7 +89,13 @@
       "c": "<img src='images/comp4.jpg'>",
       "d": "<img src='images/comp2.jpg'>"
     },
-    "correctAnswer": "b"
+    "correctAnswer": "b",
+    "explanations": {
+      "a":"",
+      "b":"",
+      "c":"",
+      "d":""},
+    "difficulty": "intermediate"
   },
   {
     "question": "7. What will be the minimum number of transistor required for designing ABC+ABC+ABC+ABC",
@@ -67,6 +105,13 @@
       "c": "8",
       "d": "10"
     },
-    "correctAnswer": "d"
+    "correctAnswer": "d",
+    "explanations": {
+      "a":"",
+      "b":"",
+      "c":"",
+      "d":""},
+    "difficulty": "advanced"
   }
 ]
+}
