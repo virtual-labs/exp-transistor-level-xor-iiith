@@ -1,4 +1,6 @@
-[
+{
+    "version": 2.0,
+    "questions": [
     {
         "question": "1. Which of the following gates can be used as even parity generator?",
         "answers": {
@@ -7,7 +9,13 @@
             "c": "OR",
             "d": "NOR"
         },
-        "correctAnswer": "b"
+        "correctAnswer": "b",
+        "explanations": {
+          "a":"",
+          "b":"",
+          "c":"",
+          "d":""},
+        "difficulty": "beginner"
     },
     {
         "question": "2. Reduce the expression xy(z+w)+y(xz+xz)+zw and tell the min number of transistor required for the design.",
@@ -17,7 +25,13 @@
             "c": "11",
             "d": "12"
         },
-        "correctAnswer": "a"
+        "correctAnswer": "a",
+        "explanations": {
+          "a":"",
+          "b":"",
+          "c":"",
+          "d":""},
+        "difficulty": "advanced"
     },
     {
         "question": "3. How many NOR gates are required for realizing XOR gate?",
@@ -27,7 +41,13 @@
             "c": "5",
             "d": "6"
         },
-        "correctAnswer": "c"
+        "correctAnswer": "c",
+        "explanations": {
+          "a":"",
+          "b":"",
+          "c":"",
+          "d":""},
+        "difficulty": "intermediate"
     },
     {
         "question": "4. Which of the following gates can be used for parity detection?",
@@ -37,7 +57,13 @@
             "c": "Both",
             "d": "None"
         },
-        "correctAnswer": "c"
+        "correctAnswer": "c",
+        "explanations": {
+          "a":"",
+          "b":"",
+          "c":"",
+          "d":""},
+        "difficulty": "beginner"
     },
     {
         "question": "5. What will be the minimum number of transistor required for designing xy+xz+zy+xy+z",
@@ -47,6 +73,13 @@
           "c": "3",
           "d": "2"
         },
-        "correctAnswer": "d"
+        "correctAnswer": "d",
+        "explanations": {
+          "a":"",
+          "b":"",
+          "c":"",
+          "d":""},
+        "difficulty": "advanced"
       }
 ]
+}
