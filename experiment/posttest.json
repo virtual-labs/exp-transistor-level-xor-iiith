@@ -11,10 +11,10 @@
     },
     "correctAnswer": "a",
     "explanations": {
-      "a":"",
-      "b":"",
-      "c":"",
-      "d":""},
+      "a":"When both inputs of an AND gate are 1, the output will be 1. However, when both inputs of an XNOR gate are 1, the output will still be 1. Therefore, the AND and XNOR gates produce same outputs when both inputs are 1, not allowing us to distinguish between them.",
+      "b":"AND and XNOR gates produce same outputs when both inputs are 1.",
+      "c":"It does not provide a definitive answer and is vague. The behavior of the AND and XNOR gates is well-defined and predictable, so it is not a matter of chance or possibility.",
+      "d":"One of the above is the correct option"},
     "difficulty": "beginner"
   },
   {
@@ -27,10 +27,10 @@
     },
     "correctAnswer": "c",
     "explanations": {
-      "a":"",
-      "b":"",
-      "c":"",
-      "d":""},
+      "a":"This represents A using PMOS and B+C using NMOS",
+      "b":"This represents A(B+C) using NMOS",
+      "c":"This represents A+BC using NMOS",
+      "d":"This represents AC in PMOS and B+C in NMOS"},
     "difficulty": "advanced"
   },
   {
@@ -43,10 +43,10 @@
     },
     "correctAnswer": "a",
     "explanations": {
-      "a":"",
-      "b":"",
-      "c":"",
-      "d":""},
+      "a":"This represents AC+BC using PMOS",
+      "b":"This represents AC in PMOS and B+C in NMOS",
+      "c":"This represents A using PMOS and B+C using NMOS",
+      "d":"This represents A(B+C) using NMOS"},
     "difficulty": "advanced"
   },
   {
@@ -59,10 +59,10 @@
     },
     "correctAnswer": "d",
     "explanations": {
-      "a":"",
-      "b":"",
-      "c":"",
-      "d":""},
+      "a":"We could represent using lesser number of transistors",
+      "b":"We cannot have lesser transistors than the number of variables.",
+      "c":"Don't need as much as 5 transistors",
+      "d":"Converting AC+BC to (A+B)C will require only 3 transistors."},
     "difficulty": "advanced"
   },
   {
@@ -75,10 +75,10 @@
     },
     "correctAnswer": "b",
     "explanations": {
-      "a":"",
-      "b":"",
-      "c":"",
-      "d":""},
+      "a":"This represents A+B+C",
+      "b":"This represents ABC",
+      "c":"This represents ABC only using NMOS",
+      "d":"This represents A+B+C using only PMOS"},
     "difficulty": "intermediate"
   },
   {
@@ -91,10 +91,10 @@
     },
     "correctAnswer": "b",
     "explanations": {
-      "a":"",
-      "b":"",
-      "c":"",
-      "d":""},
+      "a":"This represents ABC only using NMOS",
+      "b":"This represents A+B+C",
+      "c":"This represents A+B+C using only PMOS",
+      "d":"This represents ABC"},
     "difficulty": "intermediate"
   },
   {
@@ -107,10 +107,10 @@
     },
     "correctAnswer": "d",
     "explanations": {
-      "a":"",
-      "b":"",
-      "c":"",
-      "d":""},
+      "a":"If we were to implement each occurrence of ABC independently, we would need three transistors for each occurrence. In that case, the total number of transistors would be 4 * 3 = 12. However, this is not the most efficient approach.",
+      "b":"Total number of transistors required would be:3 transistors (for the first ABC) + 3 transistors (for the second ABC) + 3 transistors (for the third ABC) + 2 transistors (for the fourth ABC, reusing two of the previous three transistors) = 11 transistors.",
+      "c":"This option suggests a significant reduction in the number of transistors compared to the previous options. However, it is not correct because it is not possible to implement the given expression with only 8 transistors. Each occurrence of ABC requires at least three transistors (one for each input), so the minimum number of transistors needed would be greater than 8.",
+      "d":"This option correctly considers ABC as a common term. We need three transistors for ABC and then reuse those three transistors for the remaining three occurrences. Thus, the total number of transistors required would be 3 + 3 + 3 + 1 = 10, which is the minimum number of transistors needed to implement the expression."},
     "difficulty": "advanced"
   }
 ]
