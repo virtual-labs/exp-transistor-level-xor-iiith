@@ -11,10 +11,10 @@
         },
         "correctAnswer": "b",
         "explanations": {
-          "a":"",
-          "b":"",
-          "c":"",
-          "d":""},
+          "a":"The XNOR gate outputs a logical 1 when the number of input 1's is even, making it suitable for generating odd parity rather than even parity.",
+          "b":"An XOR gate outputs a logical 1 when the number of input 1's is odd. By using an XOR gate with all the bits of a data word, we can generate the parity bit, which ensures even parity.",
+          "c":"An OR gate outputs a logical 1 when any of the inputs are 1. It does not have the capability to generate even parity.",
+          "d":"A NOR gate outputs a logical 1 only when all of its inputs are 0. It lacks the ability to generate even parity."},
         "difficulty": "beginner"
     },
     {
@@ -27,10 +27,10 @@
         },
         "correctAnswer": "a",
         "explanations": {
-          "a":"",
-          "b":"",
-          "c":"",
-          "d":""},
+          "a":"It suggests double the number of variables in the simplified expression which is correct.",
+          "b":"It suggests an arbitrary number that does not correspond to the number of variables in the expression.",
+          "c":"It suggests an arbitrary number that does not correspond to the number of variables in the expression.",
+          "d":"It suggests an arbitrary number that does not correspond to the number of variables in the expression."},
         "difficulty": "advanced"
     },
     {
@@ -43,10 +43,10 @@
         },
         "correctAnswer": "c",
         "explanations": {
-          "a":"",
-          "b":"",
-          "c":"",
-          "d":""},
+          "a":"An XOR gate cannot be implemented using just four NOR gates",
+          "b":"An XOR gate cannot be implemented using just three NOR gates",
+          "c":"Five NOR gates are required to realize an XOR gate. ",
+          "d":"An XOR gate can be implemented using fewer NOR gates"},
         "difficulty": "intermediate"
     },
     {
@@ -59,10 +59,10 @@
         },
         "correctAnswer": "c",
         "explanations": {
-          "a":"",
-          "b":"",
-          "c":"",
-          "d":""},
+          "a":" If the output of the XOR gate is 1, it indicates an odd parity (an odd number of 1s), and if the output is 0, it indicates an even parity (an even number of 1s).",
+          "b":" If the output of the XNOR gate is 0, it indicates an odd parity (an odd number of 1s), and if the output is 1, it indicates an even parity (an even number of 1s).",
+          "c":"XOR and XNOR gates directly detects the parity by determining if the number of 1s is odd or even",
+          "d":"At least one of the gates can be used for parity detection"},
         "difficulty": "beginner"
     },
     {
@@ -73,12 +73,12 @@
           "c": "3",
           "d": "2"
         },
-        "correctAnswer": "d",
+        "correctAnswer": "a",
         "explanations": {
-          "a":"",
-          "b":"",
-          "c":"",
-          "d":""},
+          "a":"6 transistors are used to represent the 3 variables in its simplified expression.",
+          "b":"With 4 transistors, it is not possible to represent the given expression.",
+          "c":"With 3 transistors, it is not possible to represent the given expression",
+          "d":"With 2 transistors, it is not possible to represent the given expression"},
         "difficulty": "advanced"
       }
 ]
