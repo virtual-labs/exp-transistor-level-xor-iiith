@@ -22,12 +22,13 @@ The complete design will be as shown in the figure below
 
 **XOR**
 
-A ⊕ B = AB + AB
-A is analogous to C and B is analogous to D. If implementation is done according to the example described above we would require 5 NMOS and 5 PMOS.
-4 NMOS and PMOS for implementation of complement of AB+AB and 1 pair for the inverter.
+A ⊕ B = AB' + A'B
+
+A is analogous to C, A' is analogous to A and B' is analogous to D. If implementation is done according to the example described above we would require 5 NMOS and 5 PMOS.
+4 NMOS and PMOS for implementation of complement of AB+CD and 1 pair for the inverter.
 Now, think of a method to reduce the number of transistor. 1 pair needed for inverting can be reduced if XOR is implemented as the complement of XNOR.
 
 **XNOR**
 
-A ⊕ B in the similar way xnor if implemented as complement of A ⊕ B rather than AB+A B would require 4 NMOS and PMOS. In that case B would be analougos to B in the above example, A to C and B to D.
+A XNOR B = AB + A'B'. In a similar way, xnor if implemented as complement of A ⊕ B rather than AB+A'B' would require 4 NMOS and PMOS. In that case B' would be analougos to B, B to D and A' to C in the above example.
 
