@@ -1,6 +1,8 @@
+
 {
   "version": 2.0,
   "questions": [
+
   {
     "question": "1.Can you distinguish between AND and XNOR gate when both the inputs are 1?",
     "answers": {
@@ -9,6 +11,7 @@
       "c": "MAY or MAY NOT",
       "d": "None of the above"
     },
+
     "correctAnswer": "a",
     "explanations": {
       "a":"When both inputs of an AND gate are 1, the output will be 1. However, when both inputs of an XNOR gate are 1, the output will still be 1. Therefore, the AND and XNOR gates produce same outputs when both inputs are 1, not allowing us to distinguish between them.",
@@ -16,6 +19,7 @@
       "c":"It does not provide a definitive answer and is vague. The behavior of the AND and XNOR gates is well-defined and predictable, so it is not a matter of chance or possibility.",
       "d":"One of the above is the correct option"},
     "difficulty": "beginner"
+
   },
   {
     "question": "2. Choose the correct design of A+BC using NMOS only.",
@@ -25,6 +29,7 @@
       "c": "<img src='images/pic3.jpg'>",
       "d": "<img src='images/pic4.jpg'>"
     },
+
     "correctAnswer": "c",
     "explanations": {
       "a":"This represents A using PMOS and B+C using NMOS",
@@ -32,6 +37,7 @@
       "c":"This represents A+BC using NMOS",
       "d":"This represents AC in PMOS and B+C in NMOS"},
     "difficulty": "advanced"
+
   },
   {
     "question": "3. Choose the correct design of AC+BC using PMOS only.",
@@ -41,6 +47,7 @@
       "c": "<img src='images/pic1.jpg'>",
       "d": "<img src='images/pic2.jpg'>"
     },
+
     "correctAnswer": "a",
     "explanations": {
       "a":"This represents AC+BC using PMOS",
@@ -48,6 +55,7 @@
       "c":"This represents A using PMOS and B+C using NMOS",
       "d":"This represents A(B+C) using NMOS"},
     "difficulty": "advanced"
+
   },
   {
     "question": "4. In above question what is the minimum number of transistor required for making the design? ",
@@ -57,6 +65,7 @@
       "c": "5",
       "d": "3"
     },
+
     "correctAnswer": "d",
     "explanations": {
       "a":"We could represent using lesser number of transistors",
@@ -64,6 +73,7 @@
       "c":"Don't need as much as 5 transistors",
       "d":"Converting AC+BC to (A+B)C will require only 3 transistors."},
     "difficulty": "advanced"
+
   },
   {
     "question": "5. Choose the correct design of ABC using complementary logic.",
@@ -73,6 +83,7 @@
       "c": "<img src='images/comp3.jpg'>",
       "d": "<img src='images/comp4.jpg'>"
     },
+
     "correctAnswer": "b",
     "explanations": {
       "a":"This represents A+B+C",
@@ -80,6 +91,7 @@
       "c":"This represents ABC only using NMOS",
       "d":"This represents A+B+C using only PMOS"},
     "difficulty": "intermediate"
+
   },
   {
     "question": "6. Choose the correct design of A+B+C using complementary logic.",
@@ -89,6 +101,7 @@
       "c": "<img src='images/comp4.jpg'>",
       "d": "<img src='images/comp2.jpg'>"
     },
+
     "correctAnswer": "b",
     "explanations": {
       "a":"This represents ABC only using NMOS",
@@ -96,6 +109,7 @@
       "c":"This represents A+B+C using only PMOS",
       "d":"This represents ABC"},
     "difficulty": "intermediate"
+
   },
   {
     "question": "7. What will be the minimum number of transistor required for designing ABC+ABC+ABC+ABC",
@@ -105,6 +119,7 @@
       "c": "8",
       "d": "10"
     },
+
     "correctAnswer": "d",
     "explanations": {
       "a":"If we were to implement each occurrence of ABC independently, we would need three transistors for each occurrence. In that case, the total number of transistors would be 4 * 3 = 12. However, this is not the most efficient approach.",
@@ -115,3 +130,4 @@
   }
 ]
 }
+
