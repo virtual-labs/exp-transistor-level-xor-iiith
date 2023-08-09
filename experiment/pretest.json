@@ -1,6 +1,8 @@
+
 {
     "version": 2.0,
     "questions": [
+
     {
         "question": "1. Which of the following gates can be used as even parity generator?",
         "answers": {
@@ -9,6 +11,7 @@
             "c": "OR",
             "d": "NOR"
         },
+
         "correctAnswer": "b",
         "explanations": {
           "a":"The XNOR gate outputs a logical 1 when the number of input 1's is even, making it suitable for generating odd parity rather than even parity.",
@@ -16,6 +19,7 @@
           "c":"An OR gate outputs a logical 1 when any of the inputs are 1. It does not have the capability to generate even parity.",
           "d":"A NOR gate outputs a logical 1 only when all of its inputs are 0. It lacks the ability to generate even parity."},
         "difficulty": "beginner"
+
     },
     {
         "question": "2. Reduce the expression xy(z+w)+y(xz+xz)+zw and tell the min number of transistor required for the design.",
@@ -25,6 +29,7 @@
             "c": "11",
             "d": "12"
         },
+
         "correctAnswer": "a",
         "explanations": {
           "a":"It suggests double the number of variables in the simplified expression which is correct.",
@@ -32,6 +37,7 @@
           "c":"It suggests an arbitrary number that does not correspond to the number of variables in the expression.",
           "d":"It suggests an arbitrary number that does not correspond to the number of variables in the expression."},
         "difficulty": "advanced"
+
     },
     {
         "question": "3. How many NOR gates are required for realizing XOR gate?",
@@ -41,6 +47,7 @@
             "c": "5",
             "d": "6"
         },
+
         "correctAnswer": "c",
         "explanations": {
           "a":"An XOR gate cannot be implemented using just four NOR gates",
@@ -48,6 +55,7 @@
           "c":"Five NOR gates are required to realize an XOR gate. ",
           "d":"An XOR gate can be implemented using fewer NOR gates"},
         "difficulty": "intermediate"
+
     },
     {
         "question": "4. Which of the following gates can be used for parity detection?",
@@ -57,6 +65,7 @@
             "c": "Both",
             "d": "None"
         },
+
         "correctAnswer": "c",
         "explanations": {
           "a":" If the output of the XOR gate is 1, it indicates an odd parity (an odd number of 1s), and if the output is 0, it indicates an even parity (an even number of 1s).",
@@ -64,6 +73,7 @@
           "c":"XOR and XNOR gates directly detects the parity by determining if the number of 1s is odd or even",
           "d":"At least one of the gates can be used for parity detection"},
         "difficulty": "beginner"
+
     },
     {
         "question": "5. What will be the minimum number of transistor required for designing xy+xz+zy+xy+z",
@@ -73,6 +83,7 @@
           "c": "3",
           "d": "2"
         },
+
         "correctAnswer": "a",
         "explanations": {
           "a":"6 transistors are used to represent the 3 variables in its simplified expression.",
@@ -83,3 +94,4 @@
       }
 ]
 }
+

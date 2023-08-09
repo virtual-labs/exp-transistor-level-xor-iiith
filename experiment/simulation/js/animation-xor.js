@@ -454,6 +454,7 @@ function simulator1() {
             autoRotate: true,
             alignOrigin: [0.5, 0.5]
         },
+
         duration: 11,
         delay: 0,
         repeat: 0,
