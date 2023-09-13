@@ -1,0 +1,161 @@
+#diagram {
+  min-height: 31.25rem;
+  height: 75vh;
+  width: 100%;
+  border: 0.2rem solid #97d23d;
+  border-radius: 1rem;
+  position: relative;
+  background-color: #f1f1f1;
+}
+
+#diagram .component {
+  border-radius: 0.625rem;
+  border: 0.125rem solid green;
+  width: 5rem;
+  min-height: 4.75rem;
+  text-align: center;
+  cursor: move;
+  background-color: white;
+  position: absolute;
+  display: flex;
+}
+
+#diagram .component2 {
+  border-radius: 0.625rem;
+  border: 0.125rem solid green;
+  width: 7rem;
+  min-height: 4.75rem;
+  text-align: center;
+  cursor: move;
+  background-color: white;
+  position: absolute;
+  display: flex;
+}
+
+#diagram .io-component {
+  border-radius: 0.625rem;
+  border: 0.125rem solid green;
+  width: 3.75rem;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  background-color: white;
+  color: black;
+}
+
+#diagram .high {
+  background-color: rgb(97, 202, 97);
+}
+
+#diagram .low {
+  background-color: rgb(206, 206, 120);
+}
+
+.toolbar-item-list {
+  padding: 2% 5%;
+  text-align: center;
+  height: 100%;
+  overflow-y: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: start;
+  justify-content: center;
+  padding: 10px;
+}
+
+.toolbar-component {
+  width: 80px;
+  height: 100px;
+  border-radius: 0.75em;
+  border: 0.2rem solid black;
+  margin: 0.5rem 0.5rem;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
+  color: black;
+  background-color: rgb(225, 238, 225);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.toolbar-component:hover {
+  background-color: rgb(202, 252, 202);
+  cursor: pointer;
+}
+
+.each-toolbar-component {
+  padding: 0.625rem;
+  font-size: 0.9rem;
+}
+
+.svg-component {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+}
+
+.text-danger {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+.text-success {
+  color: green;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .toolbar-component {
+    width: 70px;
+    height: 80px;
+    background-size: 100%;
+  }
+
+  #diagram .component {
+    width: 3.125rem;
+    min-height: 2.96rem;
+  }
+
+  #diagram .component2 {
+    width: 4.375rem;
+    min-height: 2.96rem;
+  }
+
+  .each-toolbar-component {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1023px) {
+  #diagram .component {
+    width: 4.375rem;
+    min-height: 4.15rem;
+  }
+
+  #diagram .component2 {
+    width: 6.125rem;
+    min-height: 4.15rem;
+  }
+
+}
+
+#output-box {
+  overflow: auto;
+}
+
+.v-instruction-container {
+  border: .2rem solid #97d23d;
+  justify-content: flex-start;
+}
+
+.demo-transistor {
+  fill: none;
+  stroke: rgb(0, 0, 0);
+  stroke-width: 3;
+  stroke-miterlimit: 10;
+  pointer-events: stroke;
+}

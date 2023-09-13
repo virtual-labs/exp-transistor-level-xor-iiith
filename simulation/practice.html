@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Virtual labs</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.6/js/jsplumb.min.js"></script>
+	<link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+	<div class="columns mt-2 is-variable is-1 is-centered is-flex-wrap-wrap">
+		<div class="v-tabs">
+			<ul>
+				<li class="is-active">
+					<a>
+						<span>XOR Logic</span>
+					</a>
+				</li>
+				<li>
+					<a>
+						<span>XNOR Logic</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="columns is-centered">
+        <div class="column">
+            <div class="v-collapsible-instruction-container v-instruction-container">
+                <div class="v-collapsible is-size-5" id="task-description">
+                    Instructions
+                </div>
+                <div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+                    <ul style="list-style: disc;">
+                        <li>Click on components on the left side to add them to the circuit board.</li>
+                        <li>Drag and drop components to move them around, connect them using wires by dragging your
+                            cursor from one endpoint to another.</li>
+                        <li>Double click on a wire to delete it.</li>
+                        <li>Double click or long press on input element to change it's value</li>
+                        <li>Once you have built the required circuit and selected the input bit values, click on validate. This will give the output value as per the input bits set and will also give a success/failure message along with a truth table containing observed and expected values for various input values.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<div class="columns is-centered">
+        <div class="column" style="margin:auto;text-align:center">
+			<button class="v-button" onclick="xorValid()">Validate</button>
+			<button class="v-button" onclick="refreshWorkingArea()">Reset</button>
+        </div>
+    </div>
+
+	<div class="columns is-centered is-flex is-flex-direction-row is-flex-wrap-wrap is-align-content-start">
+		<div class="column is-2-desktop is-12-tablet is-12-mobile">
+			<div class="v-datalist-container" style="height:100%">
+				<div class="v-datalist-title">
+					ToolBar
+				</div>
+				<div class="v-datalist-row toolbar-item-list">
+					<div class="toolbar-component" onclick="compPmos()">
+						<div class="each-toolbar-component has-text-centered">
+							<svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"
+								version="1.1" viewBox="-0.5 -0.5 84 84">
+								<g class="demo-transistor">
+									<path d="M 31 61 L 31 21" />
+									<path d="M 41 61 L 41 21" />
+									<path d="M 41 31 L 61 31 L 61 1" />
+									<path d="M 61 81 L 61 51 L 41 51" />
+									<path d="M 1 41 L 17.67 41" />
+									<ellipse cx="23.02" cy="40.11" rx="5.357142857142858" ry="5.357142857142858" />
+								</g>
+							</svg>
+							PMOS
+						</div>
+					</div>
+					<div class="toolbar-component" onclick="compNmos()">
+						<div class="each-toolbar-component has-text-centered">
+							<svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"
+								version="1.1" viewBox="-0.5 -0.5 84 84">
+								<g class="demo-transistor">
+									<path d="M 31 61 L 31 21" />
+									<path d="M 41 61 L 41 21" />
+									<path d="M 41 31 L 61 31 L 61 1" />
+									<path d="M 61 81 L 61 51 L 41 51" />
+									<path d="M 1 41 L 31 41" />
+								</g>
+							</svg>
+							NMOS
+						</div>
+					</div>
+					<div class="toolbar-component" onclick="compVdd()">
+						<div class="each-toolbar-component has-text-centered">
+							<svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"
+								version="1.1" viewBox="-0.5 -6 44 34">
+								<g class="demo-transistor">
+									<path d="M 21 31 L 21 1 L 1 1 L 41 1" />
+								</g>
+							</svg>
+							VDD
+						</div>
+					</div>
+					<div class="toolbar-component" onclick="compGround()">
+						<div class="each-toolbar-component has-text-centered">
+							<svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"
+								version="1.1" viewBox="-0.5 8 64 44">
+								<g class="demo-transistor">
+									<path d="M 31 1 L 31 21 L 1 21 L 61 21" />
+									<path d="M 11 31 L 51 31" />
+									<path d="M 21 41 L 41 41" />
+								</g>
+							</svg>
+							Ground
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="column is-7-desktop is-12-tablet is-12-mobile center-content">
+			<div class="is-flex-wrap-wrap center-content simulation-container" id="diagram">
+			</div>
+		</div>
+
+		<div class="column is-3-desktop is-12-tablet is-12-mobile center-content">
+			<div class="v-datalist-container toolbar-item-list">
+				<div class="v-datalist-title">
+					Observation
+				</div>
+				<div class="v-datalist-row" id="obs-table">
+					<div class="v-table-wrap">
+						<table class="table is-bordered is-fullwidth">
+							<thead id="table-head">
+							</thead>
+							<tbody id="table-body">
+							</tbody>
+						</table>
+					</div>
+					<div id="result"></div>
+				</div>
+				<div id="output-box">
+
+				</div>
+				<div class="v-datalist-row text-danger" id="error-container">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="module" src="js/main.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
+<script src="../assets/js/iframeResize.js"></script></body>
+
+</html>
