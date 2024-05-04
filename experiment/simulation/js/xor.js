@@ -27,7 +27,7 @@ export function showTruthTable() {
             <tr>
                 <td>1</td><td>1</td><td>0</td>
             </tr>`;
-    } else {
+    } else if (selectedTab == 1){
         tableBody.innerHTML = `
             <tr>
                 <td>0</td><td>0</td><td>1</td>
@@ -41,6 +41,14 @@ export function showTruthTable() {
             <tr>
                 <td>1</td><td>1</td><td>1</td>
             </tr>`;
+    } else {
+        tableBody.innerHTML = `
+        <tr>
+            <td>0</td><td>1</td>
+        </tr>
+        <tr>
+            <td>1</td><td>0</td>
+        </tr>`
     }
     let head = `<tr>
     <th colspan="2">Inputs</th>
@@ -51,7 +59,18 @@ export function showTruthTable() {
         <th>Input 2</th>
         <th>Output</th>
     </tr>`;
+    let head2 = `<tr>
+    <th colspan="1">Inputs</th>
+    <th colspan="1">Observations</th>
+    </tr>
+    <tr>
+        <th>Input</th>
+        <th>Output</th>
+    </tr>`;
+    if(selectedTab !== 2)
     document.getElementById("table-head").innerHTML = head;
+    else
+    document.getElementById("table-head").innerHTML = head2;
     listInput[0].input = initialInput0;
     listInput[1].input = initialInput1;
     listInput[2].input = 1 - initialInput0;
@@ -160,14 +179,46 @@ export function checkXnor() {
     return xnorCircuitValid;
 }
 
+export function checkNot() {
+    const divInput1 = document.getElementById("input1");
+    if (!divInput1.classList.contains("high")) {
+        // print("No NO nO")
+        return 0;
+    }
+    const permutatorMap = permutator([0, 1, 2, 3]);
+    let xorCircuitValid = 0;
+    for (let i = 0; i < permutatorMap.length; i++) {
+        for (let j = 0; j < permutatorMap.length; j++) {
+            for (let k = 0; k < permutatorMap.length; k++) {
+                    if(checkConnectionXor(i, j, k, permutatorMap)) {
+                    xorCircuitValid = 1;
+                    break;
+                }
+            }
+            if (xorCircuitValid === 1) {
+                break;
+            }
+        }
+        if (xorCircuitValid === 1) {
+            // print("Yayyyyyy")
+            break;
+        }
+    }
+    return xorCircuitValid;
+}
+
 export function circuitValid() {
     let xorCircuitValid = checkXor();
     let xnorCircuitValid = checkXnor();
+    let notCircuitValid = checkNot();
     // check if correct xor, xnor gate is made using correct components
     if (selectedTab === currentTab.XOR && xorCircuitValid) {
         changeObservation("&#10004; Circuit is correct", 'text-danger', 'text-success');
         return true;
     } else if (selectedTab === currentTab.XNOR && xnorCircuitValid) {
+        changeObservation("&#10004; Circuit is correct", 'text-danger', 'text-success');
+        return true;
+    } else if (selectedTab === currentTab.NOT && notCircuitValid) {
         changeObservation("&#10004; Circuit is correct", 'text-danger', 'text-success');
         return true;
     } else {

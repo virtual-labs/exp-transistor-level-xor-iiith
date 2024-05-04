@@ -420,3 +420,105 @@ export function compInput3() {
     listInput[3].input = 0;
 
 }
+
+export function compBinaryBit() {
+    const id = "input1";
+    const svgElement = document.createElement('div');
+    svgElement.innerHTML = 'Binary Bit<br>1';
+    svgElement.id = id;
+    svgElement.className = 'io-component';
+    svgElement.style.top = "5rem";
+    svgElement.style.left = "0.625rem";
+    svgElement.classList.add("high");
+    svgElement.addEventListener("dblclick", () => {
+        const divInput1 = document.getElementById("input1");
+        const divInput3 = document.getElementById("input3");
+        if (divInput1.classList.contains("high")) {
+            divInput1.classList.remove("high");
+            divInput1.classList.add("low");
+            divInput3.classList.add("high");
+            divInput3.classList.remove("low");
+            divInput1.innerHTML = 'Binary Bit<br>0';
+            divInput3.innerHTML = '<br><div style="text-decoration:overline">Binary Bit</div>1';
+            listInput[1].input = 0;
+            listInput[3].input = 1;
+        } else {
+            divInput1.classList.remove("low");
+            divInput1.classList.add("high");
+            divInput3.classList.remove("high");
+            divInput3.classList.add("low");
+            divInput1.innerHTML = 'Binary Bit<br>1';
+            divInput3.innerHTML = '<br><div style="text-decoration:overline">Binary Bit</div>0';
+            listInput[1].input = 1;
+            listInput[3].input = 0;
+        }
+    });
+    svgElement.addEventListener("long-press", () => {
+        const divInput1 = document.getElementById("input1");
+        const divInput3 = document.getElementById("input3");
+        if (divInput1.classList.contains("high")) {
+            divInput1.classList.remove("high");
+            divInput1.classList.add("low");
+            divInput3.classList.add("high");
+            divInput3.classList.remove("low");
+            divInput1.innerHTML = 'Binary Bit<br>0';
+            divInput3.innerHTML = '<br><div style="text-decoration:overline">Binary Bit</div>1';
+            listInput[1].input = 0;
+            listInput[3].input = 1;
+        } else {
+            divInput1.classList.remove("low");
+            divInput1.classList.add("high");
+            divInput3.classList.remove("high");
+            divInput3.classList.add("low");
+            divInput1.innerHTML = 'Binary Bit<br>1';
+            divInput3.innerHTML = '<br><div style="text-decoration:overline">Binary Bit</div>0';
+            listInput[1].input = 1;
+            listInput[3].input = 0;
+        }
+    });
+    svgElement.input = 0;
+    svgElement.voltage = 5;
+    const container = document.getElementById("diagram");
+
+    const divPushed = {};
+    divPushed.id = id;
+    divPushed.input = 1;
+    divPushed.voltage = 5;
+
+    container.insertAdjacentElement("afterbegin", svgElement);
+
+    jsplumbInstance.draggable(id, { "containment": true });
+    listInput.push(divPushed);
+
+    addInstanceFinalInput(id);
+
+}
+
+export function compBinaryBit_() {
+    const id = "input3";
+    const svgElement = document.createElement('div');
+    svgElement.innerHTML = '<br><div style="text-decoration:overline">Binary Bit</div>0';
+    svgElement.id = id;
+    svgElement.className = 'io-component';
+    svgElement.style.top = "14.5rem";
+    svgElement.style.left = "0.625rem";
+    svgElement.classList.add("low");
+
+    svgElement.input = 0;
+    svgElement.voltage = 5;
+    const container = document.getElementById("diagram");
+
+    const divPushed = {};
+    divPushed.id = id;
+    divPushed.input = 1;
+    divPushed.voltage = 5;
+
+    container.insertAdjacentElement("afterbegin", svgElement);
+
+    jsplumbInstance.draggable(id, { "containment": true });
+    listInput.push(divPushed);
+
+    addInstanceFinalInput(id);
+    listInput[3].input = 0;
+
+}

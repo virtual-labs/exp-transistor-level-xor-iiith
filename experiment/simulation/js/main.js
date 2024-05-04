@@ -1,6 +1,6 @@
 'use strict';
 
-import { compInput0, compInput1, compInput2, compInput3, compOutput, resetCounts } from "./integrate.js";
+import { compBinaryBit, compBinaryBit_, compInput0, compInput1, compInput2, compInput3, compOutput, resetCounts } from "./integrate.js";
 import { jsplumbInstance, editConnectionMap } from './components.js';
 export const connectionMap = new Map();
 export let listPmos = [];
@@ -18,7 +18,7 @@ container.addEventListener("contextmenu", function (e) {
 
 const EMPTY = "";
 
-export const currentTab = { XOR: 0, XNOR: 1 };
+export const currentTab = { XOR: 0, XNOR: 1, NOT: 2 };
 export let selectedTab = currentTab.XOR;
 const tabs = document.querySelectorAll('.v-tabs li');
 
@@ -29,10 +29,20 @@ tabs.forEach(tab => {
 
         let parent = tab.parentNode;
         selectedTab = Array.prototype.indexOf.call(parent.children, tab);
-        refreshWorkingArea();
+        refreshWorkingArea(selectedTab);
+        updateInstructions(selectedTab)
     });
 });
 window.refreshWorkingArea = refreshWorkingArea;
+
+function updateInstructions(selectedTab) {
+    if (selectedTab == currentTab.NOT) {
+        document.getElementById('task-description').innerHTML = `Instructions<br>Build a NOT gate using a XOR Gate`
+    }
+    else
+    document.getElementById('task-description').innerHTML = `Instructions`
+
+}
 
 function emptyList() {
     for (const pmosElem of listPmos) {
@@ -79,7 +89,7 @@ export function refreshObservations() {
     document.getElementById("output-box").innerHTML = EMPTY;
 }
 
-export function refreshWorkingArea() {
+export function refreshWorkingArea(selectedTab) {
     // to reset the working area
     jsplumbInstance.deleteEveryEndpoint();
     editConnectionMap();
@@ -89,11 +99,21 @@ export function refreshWorkingArea() {
 
     resetCounts();
 
-    compInput0();
-    compInput1();
-    compInput2();
-    compInput3();
-    compOutput();
+    if (selectedTab == currentTab.NOT) {
+        compInput0();
+        compBinaryBit();
+        compInput2();
+        compBinaryBit_();
+        compOutput();
+
+    }
+    else {
+        compInput0();
+        compInput1();
+        compInput2();
+        compInput3();
+        compOutput();
+    }
     refreshObservations();
 }
 
