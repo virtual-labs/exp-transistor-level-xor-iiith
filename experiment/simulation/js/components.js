@@ -54,9 +54,39 @@ jsplumbInstance.bind("connection", () => {
     editConnectionMap();
 });
 
-jsplumbInstance.bind("dblclick", function (ci) {
-    jsplumbInstance.deleteConnection(ci);
-    editConnectionMap();
+
+const contextMenu = document.getElementById("contextMenu");
+const deleteOption = document.getElementById("deleteOption");
+const cancelOption = document.getElementById("cancelOption");
+let currentConnection = null;
+
+// Show context menu on right-click
+jsplumbInstance.bind("contextmenu", function (ci, originalEvent) {
+    originalEvent.preventDefault();
+    currentConnection = ci;
+
+    // Position and display the context menu
+    contextMenu.style.top = `${originalEvent.clientY}px`;
+    contextMenu.style.left = `${originalEvent.clientX}px`;
+    contextMenu.style.display = "block";
+});
+
+// Hide the context menu
+document.addEventListener("click", function() {
+    contextMenu.style.display = "none";
+});
+deleteOption.addEventListener("click", function() {
+    if (currentConnection) {
+        jsplumbInstance.deleteConnection(currentConnection);
+        editConnectionMap();
+        currentConnection = null;
+    }
+    contextMenu.style.display = "none";
+});
+
+// Handle cancel option
+cancelOption.addEventListener("click", function() {
+    contextMenu.style.display = "none";
 });
 
 export function addInstancePmos(id) {
