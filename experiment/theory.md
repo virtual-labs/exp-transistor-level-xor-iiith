@@ -1,4 +1,4 @@
-Having gained sufficient knowledge about series and parallel connection, we now move towards desining transistor level schematic for any given combinational logic. This is done by analysing the kmap of the given combination for p- and n- switches and then deducing the required series or parallel combination. The following example will give you an idea about how to go for designing a combinational logic using transistors. We want to design transistor level schematic of (AB+CD)
+Having gained sufficient knowledge about series and parallel connection, we now move towards desining transistor level schematic for any given combinational logic. This is done by analysing the kmap of the given combination for p- and n- switches and then deducing the required series or parallel combination. The following example will give you an idea about how to go for designing a combinational logic using transistors. We want to design transistor level schematic of (AB+CD)'
 
 **K-MAP**
 
@@ -6,7 +6,7 @@ Having gained sufficient knowledge about series and parallel connection, we now 
 
 **IMPLEMENTATION FOR N-SWITCHES**
 
-<img src="images/kmap_xor.png">
+<img src="images/image.png">
 
 The series combination of A and B is in parallel with the series combination of C and D.
 

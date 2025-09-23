@@ -25,6 +25,11 @@
 						<span>XNOR Logic</span>
 					</a>
 				</li>
+				<li>
+					<a>
+						<span>NOT Gate</span>
+					</a>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -60,7 +65,7 @@
 		<div class="column is-2-desktop is-12-tablet is-12-mobile">
 			<div class="v-datalist-container" style="height:100%">
 				<div class="v-datalist-title">
-					ToolBar
+					Component list
 				</div>
 				<div class="v-datalist-row toolbar-item-list">
 					<div class="toolbar-component" onclick="compPmos()">
@@ -152,7 +157,12 @@
 		</div>
 	</div>
 
-
+	<div id="contextMenu" class="context-menu">
+        <ul>
+            <li id="deleteOption">Delete</li>
+            <li id="cancelOption">Cancel</li>
+        </ul>
+        </div>
 	<script type="module" src="js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
 </body>

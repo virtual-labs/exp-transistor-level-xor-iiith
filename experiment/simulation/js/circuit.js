@@ -1,7 +1,7 @@
 // This function checks map when called
 'use strict';
-import {connectionMap, listGround, listVdd, listInput, listOutput, listPmos, listNmos} from './main.js';
-import { checkXnor,checkXor } from './xor.js';
+import {connectionMap, listGround, listVdd, listInput, listOutput, listPmos, listNmos, selectedTab, currentTab} from './main.js';
+import { checkXnor,checkXor, checkNot } from './xor.js';
 export function checkAndUpdate() {
     listOutput[0].voltage = 0;
     // if any vdd is connected to any pmos store voltage
@@ -124,13 +124,16 @@ export function getTruthValue() {
     const out = listOutput[0].voltage;
     const xorIsValid = checkXor();
     const xnorIsValid = checkXnor();
-    if (listInput[0].input === 0 && listInput[1].input === 1 && xorIsValid === 1) {
+    const notIsValid = checkNot();
+    if (selectedTab !== currentTab.NOT && listInput[0].input === 0 && listInput[1].input === 1 && xorIsValid === 1) {
         return "1";
-    } else if (listInput[0].input === 1 && listInput[1].input === 0 && xorIsValid === 1) {
+    } else if (selectedTab !== currentTab.NOT &&  listInput[0].input === 1 && listInput[1].input === 0 && xorIsValid === 1) {
         return "1";
-    } else if (listInput[0].input === 0 && listInput[1].input === 0 && xnorIsValid === 1) {
+    } else if (selectedTab == currentTab.NOT && listInput[0].input === 0 && listInput[1].input === 1 && notIsValid === 1) {
         return "1";
-    } else if (listInput[0].input === 1 && listInput[1].input === 1 && xnorIsValid === 1) {
+    } else if (selectedTab !== currentTab.NOT && listInput[0].input === 0 && listInput[1].input === 0 && xnorIsValid === 1) {
+        return "1";
+    } else if (selectedTab !== currentTab.NOT && listInput[0].input === 1 && listInput[1].input === 1 && xnorIsValid === 1) {
         return "1";
     }
     if (out === 5 || out === 9) {
