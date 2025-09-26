@@ -1,0 +1,137 @@
+.window {
+    z-index: 20;
+}
+
+.jtk-connector {
+    z-index: 4;
+}
+
+.jtk-endpoint {
+    z-index: 5;
+}
+
+.jtk-overlay {
+    z-index: 6;
+}
+
+
+/* disabling text selection */
+body {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+text {
+    pointer-events: none;
+}
+
+#circuit-board {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 0.2rem solid black;
+}
+
+
+/* for dropping instruction box  */
+
+.instructions-box {
+    max-height: 70px;
+    overflow: hidden;
+    transition: all .5s ease;
+}
+
+.instructions-box.expand {
+    max-height: 400px;
+}
+
+.v-instruction-container {
+    border: .2rem solid #97d23d;
+    justify-content: flex-start;
+}
+
+.highlight {
+    border: 3px solid red;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+.demo-transistor {
+    fill: none;
+    stroke: rgb(0, 0, 0);
+    stroke-width: 3;
+    stroke-miterlimit: 10;
+    pointer-events: stroke;
+}
+
+.demo-input-A {
+    fill: none;
+    stroke: #bf6be3;
+    stroke-width: 3;
+    stroke-miterlimit: 10;
+    pointer-events: stroke;
+}
+
+.demo-input-A-Bar {
+    fill: none;
+    stroke: #8080ff;
+    stroke-width: 3;
+    stroke-miterlimit: 10;
+    pointer-events: stroke;
+}
+
+.demo-input-B-Bar {
+    fill: none;
+    stroke: #ff0080;
+    stroke-width: 3;
+    stroke-miterlimit: 10;
+    pointer-events: stroke;
+}
+
+.demo-input-B {
+    fill: none;
+    stroke: #ff8000;
+    stroke-width: 3;
+    stroke-miterlimit: 10;
+    pointer-events: stroke;
+}
+
+.demo-wires {
+    fill: none;
+    stroke: #97d23d;
+    stroke-width: 3;
+}
+
+.speed-box {
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    text-align: center;
+    font-size: 1.0rem;
+    border-radius: 1em;
+    padding: .5em 1.0em;
+    cursor: pointer;
+}
+
+.demo-circles {
+    fill: green;
+    stroke: rgb(68, 68, 119);
+    stroke-width: 3;
+    fill-opacity: 1;
+    stroke-opacity: 1;
+}
+
+.demo-text {
+    font-size: 1.5rem;
+    fill: black;
+}
