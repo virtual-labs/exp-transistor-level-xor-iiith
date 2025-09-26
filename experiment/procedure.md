@@ -19,7 +19,7 @@
 
 - By default, the inputs has been set to 1, change inputs to observe various results
 
-# XNOR CMOS
+### XNOR CMOS
 
 #### Components Required -
 
