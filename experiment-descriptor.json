@@ -2,6 +2,7 @@
   "unit-type": "lu",
   "label": "",
   "basedir": ".",
+  "LaTeXinMD": "true",
   "units": [
     {
       "unit-type": "aim"
@@ -49,18 +50,18 @@
       "content-type": "simulation"
     },
     {
-      "target": "assignment.html",
-      "source": "assignment.md",
-      "label": "Assignment",
-      "unit-type": "task",
-      "content-type": "text"
-    },
-    {
       "target": "posttest.html",
       "source": "posttest.json",
       "label": "Posttest",
       "unit-type": "task",
       "content-type": "assesment"
+    },
+    {
+      "target": "assignment.html",
+      "source": "assignment.md",
+      "label": "Assignment",
+      "unit-type": "task",
+      "content-type": "text"
     },
     {
       "target": "references.html",
@@ -71,4 +72,3 @@
     }
   ]
 }
-

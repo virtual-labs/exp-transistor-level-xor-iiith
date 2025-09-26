@@ -1,34 +1,79 @@
-Having gained sufficient knowledge about series and parallel connection, we now move towards desining transistor level schematic for any given combinational logic. This is done by analysing the kmap of the given combination for p- and n- switches and then deducing the required series or parallel combination. The following example will give you an idea about how to go for designing a combinational logic using transistors. We want to design transistor level schematic of (AB+CD)'
+### XOR (Exclusive OR)
 
-**K-MAP**
+The XOR gate outputs high (1) only when the inputs are different. For a 2-input XOR, the output is low (0) when both inputs are the same (either both low or both high). XOR implements addition modulo 2 and is widely used in half-adder circuits.
 
-<img src="images/kmap_xor.png">
+**Schematic:**  
+<img src="images/xorgate.jpeg" width="250px">
 
-**IMPLEMENTATION FOR N-SWITCHES**
+**Truth Table:**
 
-<img src="images/image.png">
+| Input A | Input B | Output |
+| ------- | ------- | ------ |
+| 0       | 0       | 0      |
+| 0       | 1       | 1      |
+| 1       | 0       | 1      |
+| 1       | 1       | 0      |
 
-The series combination of A and B is in parallel with the series combination of C and D.
+---
 
-**IMPLEMENTATION FOR P-SWITCHES**
+### XNOR (Exclusive NOR)
 
-<img src="images/pmos_imp.jpg">
+The XNOR gate outputs high (1) when both inputs are the same (either both low or both high). The output is low (0) if one and only one of the inputs is high.
 
-The parallel combination of A and B is in series with the parallel combination of C and D.
+**Schematic:**  
+<img src="images/xnor.jpeg" width="250px">
 
-The complete design will be as shown in the figure below
+**Truth Table:**
 
-<img src="images/logic.jpg">
+| Input A | Input B | Output |
+| ------- | ------- | ------ |
+| 0       | 0       | 1      |
+| 0       | 1       | 0      |
+| 1       | 0       | 0      |
+| 1       | 1       | 1      |
 
-**XOR**
+---
 
-A ⊕ B = AB' + A'B
+### CMOS Implementation Concepts
 
-A is analogous to C, A' is analogous to A and B' is analogous to D. If implementation is done according to the example described above we would require 5 NMOS and 5 PMOS.
-4 NMOS and PMOS for implementation of complement of AB+CD and 1 pair for the inverter.
-Now, think of a method to reduce the number of transistor. 1 pair needed for inverting can be reduced if XOR is implemented as the complement of XNOR.
+In CMOS logic, series and parallel connections of transistors are used to realize logic gates. For example, the parallel combination of A and B can be placed in series with the parallel combination of C and D to implement more complex functions.
 
-**XNOR**
+**Example Design:**  
+<img src="images/logic.jpg" width="300px">
 
-A XNOR B = AB + A'B'. In a similar way, xnor if implemented as complement of A ⊕ B rather than AB+A'B' would require 4 NMOS and PMOS. In that case B' would be analougos to B, B to D and A' to C in the above example.
+---
 
+### XOR Gate Implementation
+
+The XOR function can be expressed as:
+
+$$A \oplus B = AB' + A'B$$
+
+To implement XOR using CMOS:
+
+- 5 NMOS and 5 PMOS transistors are typically required.
+- 4 NMOS/PMOS pairs for the main logic, and 1 pair for the inverter.
+- The number of transistors can be reduced if XOR is implemented as the complement of XNOR.
+
+---
+
+### XNOR Gate Implementation
+
+The XNOR function can be expressed as:
+
+$$A \text{ XNOR } B = AB + A'B'$$
+
+XNOR can be implemented as the complement of XOR, which reduces the required number of transistors to 4 NMOS and 4 PMOS pairs.
+
+---
+
+### Design Approach Using K-Map
+
+To design a transistor-level schematic for any combinational logic:
+
+1. Analyze the Karnaugh map (K-map) for the required logic function.
+2. Deduce the series and parallel connections for p- and n- switches.
+3. Construct the CMOS schematic accordingly.
+
+**Example:**  
+Design the transistor-level schematic for $\overline{AB + CD}$.
